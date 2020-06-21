@@ -1,83 +1,78 @@
+import DsnUtils from './DsnUtils.js'
 
-define([
-    './DsnUtils'
-], function (
-    DsnUtils
-) {
-    describe('DsnUtils', function () {
-        it('deserializes a domain object identifier', function () {
-            var identifier = DsnUtils.deserializeIdentifier('deep.space.network:canberra');
-            expect(identifier.namespace).toBe('deep.space.network');
-            expect(identifier.key).toBe('canberra');
+describe('DsnUtils', function () {
+    it('deserializes a domain object identifier', function () {
+        var identifier = DsnUtils.deserializeIdentifier('deep.space.network:canberra');
+        expect(identifier.namespace).toBe('deep.space.network');
+        expect(identifier.key).toBe('canberra');
+    });
+
+    it('serializes a domain object identifier', function () {
+        var identifer = DsnUtils.serializeIdentifier({
+            namespace: 'deep.space.network',
+            key: 'madrid'
         });
 
-        it('serializes a domain object identifier', function () {
-            var identifer = DsnUtils.serializeIdentifier({
-                namespace: 'deep.space.network',
-                key: 'madrid'
-            });
+        expect(identifer).toBe('deep.space.network:madrid');
+    });
 
-            expect(identifer).toBe('deep.space.network:madrid');
+    describe('parses telemetry', function () {
+        var downSignal;
+
+        beforeEach(function () {
+            downSignal = document.createElement('downSignal');
         });
 
-        describe('parses telemetry', function () {
-            var downSignal;
+        it('as a float', function () {
+            var dataRate;
 
-            beforeEach(function () {
-                downSignal = document.createElement('downSignal');
-            });
+            downSignal.setAttribute('dataRate', '160.002853');
+            dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
+            expect(dataRate).toBe(160.002853);
+        });
 
-            it('as a float', function () {
-                var dataRate;
+        it('as a string when a float can not be parsed', function () {
+            var dataRate,
+                frequency,
+                power;
 
-                downSignal.setAttribute('dataRate', '160.002853');
-                dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
-                expect(dataRate).toBe(160.002853);
-            });
+            downSignal.setAttribute('dataRate', '');
+            downSignal.setAttribute('frequency', ' ');
+            downSignal.setAttribute('power', 'none');
 
-            it('as a string when a float can not be parsed', function () {
-                var dataRate,
-                    frequency,
-                    power;
+            dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
+            frequency = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'frequency');
+            power = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'power');
 
-                downSignal.setAttribute('dataRate', '');
-                downSignal.setAttribute('frequency', ' ');
-                downSignal.setAttribute('power', 'none');
+            expect(dataRate).toBe('');
+            expect(frequency).toBe(' ');
+            expect(power).toBe('none');
+        });
 
-                dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
-                frequency = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'frequency');
-                power = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'power');
+        it('as an integer', function () {
+            var dataRate;
 
-                expect(dataRate).toBe('');
-                expect(frequency).toBe(' ');
-                expect(power).toBe('none');
-            });
+            downSignal.setAttribute('dataRate', '160');
+            dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
+            expect(dataRate).toBe(160);
+        });
 
-            it('as an integer', function () {
-                var dataRate;
+        it('as a string when an integer can not be parsed', function () {
+            var dataRate,
+                frequency,
+                power;
 
-                downSignal.setAttribute('dataRate', '160');
-                dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
-                expect(dataRate).toBe(160);
-            });
+            downSignal.setAttribute('dataRate', '');
+            downSignal.setAttribute('frequency', ' ');
+            downSignal.setAttribute('power', 'none');
 
-            it('as a string when an integer can not be parsed', function () {
-                var dataRate,
-                    frequency,
-                    power;
+            dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
+            frequency = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'frequency');
+            power = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'power');
 
-                downSignal.setAttribute('dataRate', '');
-                downSignal.setAttribute('frequency', ' ');
-                downSignal.setAttribute('power', 'none');
-
-                dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
-                frequency = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'frequency');
-                power = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'power');
-
-                expect(dataRate).toBe('');
-                expect(frequency).toBe(' ');
-                expect(power).toBe('none');
-            });
+            expect(dataRate).toBe('');
+            expect(frequency).toBe(' ');
+            expect(power).toBe('none');
         });
     });
 });
