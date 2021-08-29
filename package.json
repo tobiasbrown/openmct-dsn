@@ -1,0 +1,26 @@
+{
+  "name": "openmct-dsn",
+  "version": "0.0.1",
+  "description": "Open MCT plugin to integrate telemetry from the Deep Space Network",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiasbrown/openmct-dsn.git"
+  },
+  "keywords": [
+    "nasa",
+    "Open MCT",
+    "Deep Space Network",
+    "dsn",
+    "telemetry"
+  ],
+  "author": "Tobias Brown",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tobiasbrown/openmct-dsn/issues"
+  },
+  "homepage": "https://github.com/tobiasbrown/openmct-dsn#readme"
+}
