@@ -82,6 +82,15 @@
                         },
                         "key": "cdscc.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -101,6 +110,15 @@
                         },
                         "key": "cdscc.latitude",
                         "name": "Latitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -120,6 +138,15 @@
                         },
                         "key": "cdscc.longitude",
                         "name": "Longitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -139,6 +166,15 @@
                         },
                         "key": "cdscc.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -193,8 +229,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "cdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     },
                     {
                         "hints": {
@@ -221,6 +258,15 @@
                         },
                         "key": "cdscc.time.zone.offset",
                         "name": "Time zone offset"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -231,7 +277,7 @@
                 "key": "cdscc.utc.time",
                 "namespace": "deep.space.network"
             },
-            "name": "UTC time",
+            "name": "UTC",
             "telemetry": {
                 "values": [
                     {
@@ -239,8 +285,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "cdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -5604,6 +5651,15 @@
                         },
                         "key": "gdscc.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5623,6 +5679,15 @@
                         },
                         "key": "gdscc.latitude",
                         "name": "Latitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5642,6 +5707,15 @@
                         },
                         "key": "gdscc.longitude",
                         "name": "Longitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5661,6 +5735,15 @@
                         },
                         "key": "gdscc.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5715,8 +5798,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "gdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     },
                     {
                         "hints": {
@@ -5743,6 +5827,15 @@
                         },
                         "key": "gdscc.time.zone.offset",
                         "name": "Time zone offset"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5753,7 +5846,7 @@
                 "key": "gdscc.utc.time",
                 "namespace": "deep.space.network"
             },
-            "name": "UTC time",
+            "name": "UTC",
             "telemetry": {
                 "values": [
                     {
@@ -5761,8 +5854,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "gdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5866,6 +5960,15 @@
                         },
                         "key": "mdscc.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5885,6 +5988,15 @@
                         },
                         "key": "mdscc.latitude",
                         "name": "Latitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5904,6 +6016,15 @@
                         },
                         "key": "mdscc.longitude",
                         "name": "Longitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5923,6 +6044,15 @@
                         },
                         "key": "mdscc.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5977,8 +6107,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "mdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     },
                     {
                         "hints": {
@@ -6005,6 +6136,15 @@
                         },
                         "key": "mdscc.time.zone.offset",
                         "name": "Time zone offset"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6015,7 +6155,7 @@
                 "key": "mdscc.utc.time",
                 "namespace": "deep.space.network"
             },
-            "name": "UTC time",
+            "name": "UTC",
             "telemetry": {
                 "values": [
                     {
@@ -6023,8 +6163,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "mdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },

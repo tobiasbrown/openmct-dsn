@@ -38,8 +38,8 @@ define([
 
             sites[siteKey + '.name'] = siteElement.getAttribute('name');
             sites[siteKey + '.friendly.name'] = siteElement.getAttribute('friendlyName');
-            sites[siteKey + '.longitude'] = parseFloat(siteElement.getAttribute('longitude'));
-            sites[siteKey + '.latitude'] = parseFloat(siteElement.getAttribute('latitude'));
+            sites[siteKey + '.station.longitude'] = parseFloat(siteElement.getAttribute('longitude'));
+            sites[siteKey + '.station.latitude'] = parseFloat(siteElement.getAttribute('latitude'));
 
             for (var j = 0; j < siteElement.children.length; j++) {
                 dishElement = siteElement.children[j];
@@ -111,15 +111,28 @@ define([
      * @returns {object} An object containing the station's data.
      */
     DsnParser.prototype.parseStationTag = function (stationElement) {
-        var key = stationElement.getAttribute('name').toLowerCase(),
-            station = {};
+        var friendlyName = {},
+            key = stationElement.getAttribute('name').toLowerCase(),
+            latitude = {},
+            longitude = {},
+            name = {},
+            station = {},
+            timeZoneOffset = {},
+            utcTime = {};
 
-        station[key + '.name'] = stationElement.getAttribute('name');
-        station[key + '.friendly.name'] = stationElement.getAttribute('friendlyName');
-        station[key + '.utc.time'] = parseInt(stationElement.getAttribute('timeUTC'), 10);
-        station[key + '.time.zone.offset'] = parseInt(stationElement.getAttribute('timeZoneOffset'), 10);
-        station[key + '.longitude'] = this.dsn.data[key + '.longitude'];
-        station[key + '.latitude'] = this.dsn.data[key + '.latitude'];
+        name[key + '.name'] = stationElement.getAttribute('name');
+        friendlyName[key + '.friendly.name'] = stationElement.getAttribute('friendlyName');
+        utcTime[key + '.utc.time'] = parseInt(stationElement.getAttribute('timeUTC'), 10);
+        timeZoneOffset[key + '.time.zone.offset'] = parseInt(stationElement.getAttribute('timeZoneOffset'), 10);
+        longitude[key + '.longitude'] = this.dsn.data[key + '.station.longitude'];
+        latitude[key + '.latitude'] = this.dsn.data[key + '.station.latitude'];
+
+        station[key + '.name'] = Object.assign({}, name, utcTime);
+        station[key + '.friendly.name'] = Object.assign({}, friendlyName, utcTime);
+        station[key + '.utc.time'] = Object.assign({}, utcTime);
+        station[key + '.time.zone.offset'] = Object.assign({}, timeZoneOffset, utcTime);
+        station[key + '.longitude'] = Object.assign({}, longitude, utcTime);
+        station[key + '.latitude'] = Object.assign({}, latitude, utcTime);
         station[key + '.station'] = Object.assign({}, station);
 
         return station;
