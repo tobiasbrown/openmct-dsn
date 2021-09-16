@@ -7705,11 +7705,13 @@
             "telemetry": {
                 "values": [
                     {
+                        "format": "utc",
                         "hints": {
                             "domain": 1
                         },
-                        "key": "timestamp",
-                        "name": "Timestamp"
+                        "key": "utc",
+                        "name": "Timestamp",
+                        "source": "timestamp"
                     }
                 ]
             },
