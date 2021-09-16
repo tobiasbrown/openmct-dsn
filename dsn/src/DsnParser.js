@@ -213,6 +213,7 @@ define([
                 signal[key + '.signal.spacecraft'] = child.getAttribute('spacecraft');
                 signal[key + '.signal.spacecraft.id'] = DsnUtils.parseTelemetryAsIntegerOrString(child, 'spacecraftId');
                 signal[key + '.signal.spacecraft.friendly.name'] = this.dsn.data[spacecraftName + '.friendly.name'];
+                signal = Object.assign(signal, utcTime);
                 dish[key + '.signals'].push(signal);
                 break;
             case 'target':

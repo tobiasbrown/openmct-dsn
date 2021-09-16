@@ -694,6 +694,15 @@
                         },
                         "key": "dss14.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1244,6 +1253,15 @@
                         },
                         "key": "dss24.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1794,6 +1812,15 @@
                         },
                         "key": "dss25.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -2344,6 +2371,15 @@
                         },
                         "key": "dss26.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -2894,6 +2930,15 @@
                         },
                         "key": "dss34.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3444,6 +3489,15 @@
                         },
                         "key": "dss35.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3994,6 +4048,15 @@
                         },
                         "key": "dss36.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -4544,6 +4607,15 @@
                         },
                         "key": "dss43.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -5094,6 +5166,15 @@
                         },
                         "key": "dss54.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5644,6 +5725,15 @@
                         },
                         "key": "dss55.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6194,6 +6284,15 @@
                         },
                         "key": "dss63.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6744,6 +6843,15 @@
                         },
                         "key": "dss65.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
