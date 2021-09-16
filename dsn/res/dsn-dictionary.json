@@ -760,6 +760,15 @@
                         },
                         "key": "dss14.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1319,6 +1328,15 @@
                         },
                         "key": "dss24.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1878,6 +1896,15 @@
                         },
                         "key": "dss25.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -2437,6 +2464,15 @@
                         },
                         "key": "dss26.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -2996,6 +3032,15 @@
                         },
                         "key": "dss34.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3555,6 +3600,15 @@
                         },
                         "key": "dss35.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -4114,6 +4168,15 @@
                         },
                         "key": "dss36.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -4673,6 +4736,15 @@
                         },
                         "key": "dss43.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -5232,6 +5304,15 @@
                         },
                         "key": "dss54.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5791,6 +5872,15 @@
                         },
                         "key": "dss55.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6350,6 +6440,15 @@
                         },
                         "key": "dss63.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6909,6 +7008,15 @@
                         },
                         "key": "dss65.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },

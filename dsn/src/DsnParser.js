@@ -226,6 +226,7 @@ define([
                 target[key + '.target.downleg.range'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'downlegRange');
                 target[key + '.target.rtlt'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'rtlt');
                 target[key + '.target.friendly.name'] = targetName ? this.dsn.data[targetName + '.friendly.name'] : '';
+                target = Object.assign(target, utcTime);
                 dish[key + '.targets'].push(target);
                 break;
             }
