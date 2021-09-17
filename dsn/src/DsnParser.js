@@ -38,16 +38,16 @@ define([
 
             sites[siteKey + '.name'] = siteElement.getAttribute('name');
             sites[siteKey + '.friendly.name'] = siteElement.getAttribute('friendlyName');
-            sites[siteKey + '.longitude'] = parseFloat(siteElement.getAttribute('longitude'));
-            sites[siteKey + '.latitude'] = parseFloat(siteElement.getAttribute('latitude'));
+            sites[siteKey + '.station.longitude'] = parseFloat(siteElement.getAttribute('longitude'));
+            sites[siteKey + '.station.latitude'] = parseFloat(siteElement.getAttribute('latitude'));
 
             for (var j = 0; j < siteElement.children.length; j++) {
                 dishElement = siteElement.children[j];
                 dishKey = dishElement.getAttribute('name').toLowerCase();
 
                 sites[dishKey + '.name'] = dishElement.getAttribute('name');
-                sites[dishKey + '.friendly.name'] = dishElement.getAttribute('friendlyName');
-                sites[dishKey + '.type'] = dishElement.getAttribute('type');
+                sites[dishKey + '.dish.friendly.name'] = dishElement.getAttribute('friendlyName');
+                sites[dishKey + '.dish.type'] = dishElement.getAttribute('type');
             }
         }
 
@@ -111,15 +111,28 @@ define([
      * @returns {object} An object containing the station's data.
      */
     DsnParser.prototype.parseStationTag = function (stationElement) {
-        var key = stationElement.getAttribute('name').toLowerCase(),
-            station = {};
+        var friendlyName = {},
+            key = stationElement.getAttribute('name').toLowerCase(),
+            latitude = {},
+            longitude = {},
+            name = {},
+            station = {},
+            timeZoneOffset = {},
+            utcTime = {};
 
-        station[key + '.name'] = stationElement.getAttribute('name');
-        station[key + '.friendly.name'] = stationElement.getAttribute('friendlyName');
-        station[key + '.utc.time'] = parseInt(stationElement.getAttribute('timeUTC'), 10);
-        station[key + '.time.zone.offset'] = parseInt(stationElement.getAttribute('timeZoneOffset'), 10);
-        station[key + '.longitude'] = this.dsn.data[key + '.longitude'];
-        station[key + '.latitude'] = this.dsn.data[key + '.latitude'];
+        name[key + '.name'] = stationElement.getAttribute('name');
+        friendlyName[key + '.friendly.name'] = stationElement.getAttribute('friendlyName');
+        utcTime[key + '.utc.time'] = parseInt(stationElement.getAttribute('timeUTC'), 10);
+        timeZoneOffset[key + '.time.zone.offset'] = parseInt(stationElement.getAttribute('timeZoneOffset'), 10);
+        longitude[key + '.longitude'] = this.dsn.data[key + '.station.longitude'];
+        latitude[key + '.latitude'] = this.dsn.data[key + '.station.latitude'];
+
+        station[key + '.name'] = Object.assign({}, name, utcTime);
+        station[key + '.friendly.name'] = Object.assign({}, friendlyName, utcTime);
+        station[key + '.utc.time'] = Object.assign({}, utcTime);
+        station[key + '.time.zone.offset'] = Object.assign({}, timeZoneOffset, utcTime);
+        station[key + '.longitude'] = Object.assign({}, longitude, utcTime);
+        station[key + '.latitude'] = Object.assign({}, latitude, utcTime);
         station[key + '.station'] = Object.assign({}, station);
 
         return station;
@@ -134,24 +147,51 @@ define([
      * up signals and targets.
      */
     DsnParser.prototype.parseDishTag = function (dishElement) {
-        var children = dishElement.children,
+        var azimuthAngle = {},
+            children = dishElement.children,
+            created = {},
+            dish = {},
+            elevationAngle = {},
+            friendlyName = {},
+            isArray = {},
+            isDdor = {},
+            isMspa = {},
             key,
-            dish = {};
+            name = {},
+            stationKey,
+            type = {},
+            updated = {},
+            utcTime,
+            windSpeed = {};
 
         key = dishElement.getAttribute('name').toLowerCase();
+        stationKey = DsnUtils.getStationNameByDish(key);
+        utcTime = this.dsn.data[stationKey + '.utc.time'];
 
-        dish[key + '.name'] = dishElement.getAttribute('name');
-        dish[key + '.friendly.name'] = this.dsn.data[key + '.friendly.name'];
-        dish[key + '.type'] = this.dsn.data[key + '.type'];
-        dish[key + '.azimuth.angle'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'azimuthAngle');
-        dish[key + '.elevation.angle'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'elevationAngle');
-        dish[key + '.wind.speed'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'windSpeed');
-        dish[key + '.mspa'] = dishElement.getAttribute('isMSPA') === 'true';
-        dish[key + '.array'] = dishElement.getAttribute('isArray') === 'true';
-        dish[key + '.ddor'] = dishElement.getAttribute('isDDOR') === 'true';
-        dish[key + '.created'] = dishElement.getAttribute('created');
-        dish[key + '.updated'] = dishElement.getAttribute('updated');
-        dish[key + '.antenna'] = Object.assign({}, dish);
+        name[key + '.name'] = dishElement.getAttribute('name');
+        friendlyName[key + '.friendly.name'] = this.dsn.data[key + '.dish.friendly.name'];
+        type[key + '.type'] = this.dsn.data[key + '.dish.type'];
+        azimuthAngle[key + '.azimuth.angle'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'azimuthAngle');
+        elevationAngle[key + '.elevation.angle'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'elevationAngle');
+        windSpeed[key + '.wind.speed'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'windSpeed');
+        isMspa[key + '.mspa'] = dishElement.getAttribute('isMSPA') === 'true';
+        isArray[key + '.array'] = dishElement.getAttribute('isArray') === 'true';
+        isDdor[key + '.ddor'] = dishElement.getAttribute('isDDOR') === 'true';
+        created[key + '.created'] = dishElement.getAttribute('created');
+        updated[key + '.updated'] = dishElement.getAttribute('updated');
+
+        dish[key + '.name'] = Object.assign({}, name, utcTime);
+        dish[key + '.friendly.name'] = Object.assign({}, friendlyName, utcTime);
+        dish[key + '.type'] = Object.assign({}, type, utcTime);
+        dish[key + '.azimuth.angle'] = Object.assign({}, azimuthAngle, utcTime);
+        dish[key + '.elevation.angle'] = Object.assign({}, elevationAngle, utcTime);
+        dish[key + '.wind.speed'] = Object.assign({}, windSpeed, utcTime);
+        dish[key + '.mspa'] = Object.assign({}, isMspa, utcTime);
+        dish[key + '.array'] = Object.assign({}, isArray, utcTime);
+        dish[key + '.ddor'] = Object.assign({}, isDdor, utcTime);
+        dish[key + '.created'] = Object.assign({}, created, utcTime);
+        dish[key + '.updated'] = Object.assign({}, updated, utcTime);
+        dish[key + '.antenna'] = Object.assign({}, dish, utcTime);
         dish[key + '.signals'] = [];
         dish[key + '.targets'] = [];
 
@@ -173,6 +213,7 @@ define([
                 signal[key + '.signal.spacecraft'] = child.getAttribute('spacecraft');
                 signal[key + '.signal.spacecraft.id'] = DsnUtils.parseTelemetryAsIntegerOrString(child, 'spacecraftId');
                 signal[key + '.signal.spacecraft.friendly.name'] = this.dsn.data[spacecraftName + '.friendly.name'];
+                signal = Object.assign(signal, utcTime);
                 dish[key + '.signals'].push(signal);
                 break;
             case 'target':
@@ -185,6 +226,7 @@ define([
                 target[key + '.target.downleg.range'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'downlegRange');
                 target[key + '.target.rtlt'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'rtlt');
                 target[key + '.target.friendly.name'] = targetName ? this.dsn.data[targetName + '.friendly.name'] : '';
+                target = Object.assign(target, utcTime);
                 dish[key + '.targets'].push(target);
                 break;
             }

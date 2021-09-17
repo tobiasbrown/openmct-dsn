@@ -6,12 +6,41 @@
  * need to be separated by a colon (eg. 'my.namespace:my.key').
  * @returns {Object} identifier
  */
-export const deserializeIdentifier = identifier => {
+ export const deserializeIdentifier = identifier => {
     var tokens = identifier.split(':');
     return {
         namespace: tokens[0],
         key: tokens[1]
     };
+}
+
+/**
+ * Returns the name of a station given the name of a dish.
+ *
+ * @param {string} dish - The name of a dish (eg. 'dss14').
+ * @returns {string} The station name (eg. 'gdscc').
+ */
+export const getStationNameByDish = dish => {
+    switch (dish.toLowerCase()) {
+        case 'dss14':
+        case 'dss24':
+        case 'dss25':
+        case 'dss26':
+            return 'gdscc'
+        case 'dss34':
+        case 'dss35':
+        case 'dss36':
+        case 'dss43':
+            return 'cdscc'
+        case 'dss54':
+        case 'dss55':
+        case 'dss56':
+        case 'dss63':
+        case 'dss65':
+            return 'mdscc'
+        default:
+            console.warn('Unknown dish: ', dish)
+    }
 }
 
 /**
@@ -51,6 +80,7 @@ export const serializeIdentifier = identifier => {
 
 export default {
     deserializeIdentifier: deserializeIdentifier,
+    getStationNameByDish: getStationNameByDish,
     parseTelemetryAsFloatOrString: parseTelemetryAsFloatOrString,
     parseTelemetryAsIntegerOrString: parseTelemetryAsIntegerOrString,
     serializeIdentifier: serializeIdentifier

@@ -82,6 +82,15 @@
                         },
                         "key": "cdscc.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -101,6 +110,15 @@
                         },
                         "key": "cdscc.latitude",
                         "name": "Latitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -120,6 +138,15 @@
                         },
                         "key": "cdscc.longitude",
                         "name": "Longitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -139,6 +166,15 @@
                         },
                         "key": "cdscc.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -193,8 +229,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "cdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     },
                     {
                         "hints": {
@@ -221,6 +258,15 @@
                         },
                         "key": "cdscc.time.zone.offset",
                         "name": "Time zone offset"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -231,7 +277,7 @@
                 "key": "cdscc.utc.time",
                 "namespace": "deep.space.network"
             },
-            "name": "UTC time",
+            "name": "UTC",
             "telemetry": {
                 "values": [
                     {
@@ -239,8 +285,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "cdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -258,7 +305,8 @@
                 "deep.space.network:dss14.array",
                 "deep.space.network:dss14.ddor",
                 "deep.space.network:dss14.created",
-                "deep.space.network:dss14.updated"
+                "deep.space.network:dss14.updated",
+                "deep.space.network:gdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss14.antenna",
@@ -344,6 +392,15 @@
                         },
                         "key": "dss14.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -363,6 +420,15 @@
                         },
                         "key": "dss14.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -384,6 +450,15 @@
                         "key": "dss14.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -404,6 +479,15 @@
                         },
                         "key": "dss14.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -423,6 +507,15 @@
                         },
                         "key": "dss14.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -444,6 +537,15 @@
                         "key": "dss14.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -463,6 +565,15 @@
                         },
                         "key": "dss14.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -482,6 +593,15 @@
                         },
                         "key": "dss14.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -501,6 +621,15 @@
                         },
                         "key": "dss14.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -565,6 +694,15 @@
                         },
                         "key": "dss14.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -622,6 +760,15 @@
                         },
                         "key": "dss14.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -641,6 +788,15 @@
                         },
                         "key": "dss14.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -661,6 +817,15 @@
                         },
                         "key": "dss14.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -682,6 +847,15 @@
                         "key": "dss14.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -699,7 +873,8 @@
                 "deep.space.network:dss24.array",
                 "deep.space.network:dss24.ddor",
                 "deep.space.network:dss24.created",
-                "deep.space.network:dss24.updated"
+                "deep.space.network:dss24.updated",
+                "deep.space.network:gdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss24.antenna",
@@ -785,6 +960,15 @@
                         },
                         "key": "dss24.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -804,6 +988,15 @@
                         },
                         "key": "dss24.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -825,6 +1018,15 @@
                         "key": "dss24.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -845,6 +1047,15 @@
                         },
                         "key": "dss24.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -864,6 +1075,15 @@
                         },
                         "key": "dss24.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -885,6 +1105,15 @@
                         "key": "dss24.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -904,6 +1133,15 @@
                         },
                         "key": "dss24.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -923,6 +1161,15 @@
                         },
                         "key": "dss24.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -942,6 +1189,15 @@
                         },
                         "key": "dss24.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1006,6 +1262,15 @@
                         },
                         "key": "dss24.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1063,6 +1328,15 @@
                         },
                         "key": "dss24.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1082,6 +1356,15 @@
                         },
                         "key": "dss24.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1102,6 +1385,15 @@
                         },
                         "key": "dss24.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1123,6 +1415,15 @@
                         "key": "dss24.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1140,7 +1441,8 @@
                 "deep.space.network:dss25.array",
                 "deep.space.network:dss25.ddor",
                 "deep.space.network:dss25.created",
-                "deep.space.network:dss25.updated"
+                "deep.space.network:dss25.updated",
+                "deep.space.network:gdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss25.antenna",
@@ -1226,6 +1528,15 @@
                         },
                         "key": "dss25.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1245,6 +1556,15 @@
                         },
                         "key": "dss25.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1266,6 +1586,15 @@
                         "key": "dss25.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1286,6 +1615,15 @@
                         },
                         "key": "dss25.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1305,6 +1643,15 @@
                         },
                         "key": "dss25.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1326,6 +1673,15 @@
                         "key": "dss25.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1345,6 +1701,15 @@
                         },
                         "key": "dss25.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1364,6 +1729,15 @@
                         },
                         "key": "dss25.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1383,6 +1757,15 @@
                         },
                         "key": "dss25.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1447,6 +1830,15 @@
                         },
                         "key": "dss25.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1504,6 +1896,15 @@
                         },
                         "key": "dss25.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1523,6 +1924,15 @@
                         },
                         "key": "dss25.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1543,6 +1953,15 @@
                         },
                         "key": "dss25.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1564,6 +1983,15 @@
                         "key": "dss25.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1581,7 +2009,8 @@
                 "deep.space.network:dss26.array",
                 "deep.space.network:dss26.ddor",
                 "deep.space.network:dss26.created",
-                "deep.space.network:dss26.updated"
+                "deep.space.network:dss26.updated",
+                "deep.space.network:gdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss26.antenna",
@@ -1667,6 +2096,15 @@
                         },
                         "key": "dss26.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1686,6 +2124,15 @@
                         },
                         "key": "dss26.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1707,6 +2154,15 @@
                         "key": "dss26.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1727,6 +2183,15 @@
                         },
                         "key": "dss26.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1746,6 +2211,15 @@
                         },
                         "key": "dss26.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1767,6 +2241,15 @@
                         "key": "dss26.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1786,6 +2269,15 @@
                         },
                         "key": "dss26.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1805,6 +2297,15 @@
                         },
                         "key": "dss26.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1824,6 +2325,15 @@
                         },
                         "key": "dss26.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1888,6 +2398,15 @@
                         },
                         "key": "dss26.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1945,6 +2464,15 @@
                         },
                         "key": "dss26.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1964,6 +2492,15 @@
                         },
                         "key": "dss26.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -1984,6 +2521,15 @@
                         },
                         "key": "dss26.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -2005,6 +2551,15 @@
                         "key": "dss26.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -2022,7 +2577,8 @@
                 "deep.space.network:dss34.array",
                 "deep.space.network:dss34.ddor",
                 "deep.space.network:dss34.created",
-                "deep.space.network:dss34.updated"
+                "deep.space.network:dss34.updated",
+                "deep.space.network:cdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss34.antenna",
@@ -2108,6 +2664,15 @@
                         },
                         "key": "dss34.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2127,6 +2692,15 @@
                         },
                         "key": "dss34.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2148,6 +2722,15 @@
                         "key": "dss34.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2168,6 +2751,15 @@
                         },
                         "key": "dss34.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2187,6 +2779,15 @@
                         },
                         "key": "dss34.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2208,6 +2809,15 @@
                         "key": "dss34.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2227,6 +2837,15 @@
                         },
                         "key": "dss34.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2246,6 +2865,15 @@
                         },
                         "key": "dss34.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2265,6 +2893,15 @@
                         },
                         "key": "dss34.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2329,6 +2966,15 @@
                         },
                         "key": "dss34.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2386,6 +3032,15 @@
                         },
                         "key": "dss34.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2405,6 +3060,15 @@
                         },
                         "key": "dss34.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2425,6 +3089,15 @@
                         },
                         "key": "dss34.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2446,6 +3119,15 @@
                         "key": "dss34.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2463,7 +3145,8 @@
                 "deep.space.network:dss35.array",
                 "deep.space.network:dss35.ddor",
                 "deep.space.network:dss35.created",
-                "deep.space.network:dss35.updated"
+                "deep.space.network:dss35.updated",
+                "deep.space.network:cdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss35.antenna",
@@ -2549,6 +3232,15 @@
                         },
                         "key": "dss35.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2568,6 +3260,15 @@
                         },
                         "key": "dss35.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2589,6 +3290,15 @@
                         "key": "dss35.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2609,6 +3319,15 @@
                         },
                         "key": "dss35.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2628,6 +3347,15 @@
                         },
                         "key": "dss35.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2649,6 +3377,15 @@
                         "key": "dss35.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2668,6 +3405,15 @@
                         },
                         "key": "dss35.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2687,6 +3433,15 @@
                         },
                         "key": "dss35.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2706,6 +3461,15 @@
                         },
                         "key": "dss35.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2770,6 +3534,15 @@
                         },
                         "key": "dss35.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2827,6 +3600,15 @@
                         },
                         "key": "dss35.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2846,6 +3628,15 @@
                         },
                         "key": "dss35.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2866,6 +3657,15 @@
                         },
                         "key": "dss35.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2887,6 +3687,15 @@
                         "key": "dss35.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -2904,7 +3713,8 @@
                 "deep.space.network:dss36.array",
                 "deep.space.network:dss36.ddor",
                 "deep.space.network:dss36.created",
-                "deep.space.network:dss36.updated"
+                "deep.space.network:dss36.updated",
+                "deep.space.network:cdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss36.antenna",
@@ -2990,6 +3800,15 @@
                         },
                         "key": "dss36.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3009,6 +3828,15 @@
                         },
                         "key": "dss36.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3030,6 +3858,15 @@
                         "key": "dss36.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3050,6 +3887,15 @@
                         },
                         "key": "dss36.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3069,6 +3915,15 @@
                         },
                         "key": "dss36.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3090,6 +3945,15 @@
                         "key": "dss36.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3109,6 +3973,15 @@
                         },
                         "key": "dss36.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3128,6 +4001,15 @@
                         },
                         "key": "dss36.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3147,6 +4029,15 @@
                         },
                         "key": "dss36.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3211,6 +4102,15 @@
                         },
                         "key": "dss36.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3268,6 +4168,15 @@
                         },
                         "key": "dss36.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3287,6 +4196,15 @@
                         },
                         "key": "dss36.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3307,6 +4225,15 @@
                         },
                         "key": "dss36.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3328,6 +4255,15 @@
                         "key": "dss36.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3345,7 +4281,8 @@
                 "deep.space.network:dss43.array",
                 "deep.space.network:dss43.ddor",
                 "deep.space.network:dss43.created",
-                "deep.space.network:dss43.updated"
+                "deep.space.network:dss43.updated",
+                "deep.space.network:cdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss43.antenna",
@@ -3431,6 +4368,15 @@
                         },
                         "key": "dss43.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3450,6 +4396,15 @@
                         },
                         "key": "dss43.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3471,6 +4426,15 @@
                         "key": "dss43.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3491,6 +4455,15 @@
                         },
                         "key": "dss43.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3510,6 +4483,15 @@
                         },
                         "key": "dss43.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3531,6 +4513,15 @@
                         "key": "dss43.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3550,6 +4541,15 @@
                         },
                         "key": "dss43.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3569,6 +4569,15 @@
                         },
                         "key": "dss43.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3588,6 +4597,15 @@
                         },
                         "key": "dss43.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3652,6 +4670,15 @@
                         },
                         "key": "dss43.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3709,6 +4736,15 @@
                         },
                         "key": "dss43.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3728,6 +4764,15 @@
                         },
                         "key": "dss43.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3748,6 +4793,15 @@
                         },
                         "key": "dss43.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3769,6 +4823,15 @@
                         "key": "dss43.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "cdscc.utc.time"
                     }
                 ]
             },
@@ -3786,7 +4849,8 @@
                 "deep.space.network:dss54.array",
                 "deep.space.network:dss54.ddor",
                 "deep.space.network:dss54.created",
-                "deep.space.network:dss54.updated"
+                "deep.space.network:dss54.updated",
+                "deep.space.network:mdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss54.antenna",
@@ -3872,6 +4936,15 @@
                         },
                         "key": "dss54.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -3891,6 +4964,15 @@
                         },
                         "key": "dss54.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -3912,6 +4994,15 @@
                         "key": "dss54.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -3932,6 +5023,15 @@
                         },
                         "key": "dss54.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -3951,6 +5051,15 @@
                         },
                         "key": "dss54.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -3972,6 +5081,15 @@
                         "key": "dss54.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -3991,6 +5109,15 @@
                         },
                         "key": "dss54.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4010,6 +5137,15 @@
                         },
                         "key": "dss54.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4029,6 +5165,15 @@
                         },
                         "key": "dss54.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4093,6 +5238,15 @@
                         },
                         "key": "dss54.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4150,6 +5304,15 @@
                         },
                         "key": "dss54.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4169,6 +5332,15 @@
                         },
                         "key": "dss54.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4189,6 +5361,15 @@
                         },
                         "key": "dss54.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4210,6 +5391,15 @@
                         "key": "dss54.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4227,7 +5417,8 @@
                 "deep.space.network:dss55.array",
                 "deep.space.network:dss55.ddor",
                 "deep.space.network:dss55.created",
-                "deep.space.network:dss55.updated"
+                "deep.space.network:dss55.updated",
+                "deep.space.network:mdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss55.antenna",
@@ -4313,6 +5504,15 @@
                         },
                         "key": "dss55.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4332,6 +5532,15 @@
                         },
                         "key": "dss55.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4353,6 +5562,15 @@
                         "key": "dss55.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4373,6 +5591,15 @@
                         },
                         "key": "dss55.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4392,6 +5619,15 @@
                         },
                         "key": "dss55.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4413,6 +5649,15 @@
                         "key": "dss55.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4432,6 +5677,15 @@
                         },
                         "key": "dss55.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4451,6 +5705,15 @@
                         },
                         "key": "dss55.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4470,6 +5733,15 @@
                         },
                         "key": "dss55.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4534,6 +5806,15 @@
                         },
                         "key": "dss55.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4591,6 +5872,15 @@
                         },
                         "key": "dss55.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4610,6 +5900,15 @@
                         },
                         "key": "dss55.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4630,6 +5929,15 @@
                         },
                         "key": "dss55.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4651,6 +5959,15 @@
                         "key": "dss55.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4668,7 +5985,8 @@
                 "deep.space.network:dss63.array",
                 "deep.space.network:dss63.ddor",
                 "deep.space.network:dss63.created",
-                "deep.space.network:dss63.updated"
+                "deep.space.network:dss63.updated",
+                "deep.space.network:mdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss63.antenna",
@@ -4754,6 +6072,15 @@
                         },
                         "key": "dss63.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4773,6 +6100,15 @@
                         },
                         "key": "dss63.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4794,6 +6130,15 @@
                         "key": "dss63.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4814,6 +6159,15 @@
                         },
                         "key": "dss63.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4833,6 +6187,15 @@
                         },
                         "key": "dss63.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4854,6 +6217,15 @@
                         "key": "dss63.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4873,6 +6245,15 @@
                         },
                         "key": "dss63.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4892,6 +6273,15 @@
                         },
                         "key": "dss63.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4911,6 +6301,15 @@
                         },
                         "key": "dss63.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -4975,6 +6374,15 @@
                         },
                         "key": "dss63.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5032,6 +6440,15 @@
                         },
                         "key": "dss63.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5051,6 +6468,15 @@
                         },
                         "key": "dss63.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5071,6 +6497,15 @@
                         },
                         "key": "dss63.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5092,6 +6527,15 @@
                         "key": "dss63.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5109,7 +6553,8 @@
                 "deep.space.network:dss65.array",
                 "deep.space.network:dss65.ddor",
                 "deep.space.network:dss65.created",
-                "deep.space.network:dss65.updated"
+                "deep.space.network:dss65.updated",
+                "deep.space.network:mdscc.utc.time"
             ],
             "identifier": {
                 "key": "dss65.antenna",
@@ -5195,6 +6640,15 @@
                         },
                         "key": "dss65.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5214,6 +6668,15 @@
                         },
                         "key": "dss65.array",
                         "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5235,6 +6698,15 @@
                         "key": "dss65.azimuth.angle",
                         "name": "Azimuth",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5255,6 +6727,15 @@
                         },
                         "key": "dss65.created",
                         "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5274,6 +6755,15 @@
                         },
                         "key": "dss65.ddor",
                         "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5295,6 +6785,15 @@
                         "key": "dss65.elevation.angle",
                         "name": "Elevation",
                         "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5314,6 +6813,15 @@
                         },
                         "key": "dss65.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5333,6 +6841,15 @@
                         },
                         "key": "dss65.mspa",
                         "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5352,6 +6869,15 @@
                         },
                         "key": "dss65.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5416,6 +6942,15 @@
                         },
                         "key": "dss65.signal.power",
                         "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5473,6 +7008,15 @@
                         },
                         "key": "dss65.target.rtlt",
                         "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5492,6 +7036,15 @@
                         },
                         "key": "dss65.type",
                         "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5512,6 +7065,15 @@
                         },
                         "key": "dss65.updated",
                         "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5533,6 +7095,15 @@
                         "key": "dss65.wind.speed",
                         "name": "Wind speed",
                         "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5604,6 +7175,15 @@
                         },
                         "key": "gdscc.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5623,6 +7203,15 @@
                         },
                         "key": "gdscc.latitude",
                         "name": "Latitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5642,6 +7231,15 @@
                         },
                         "key": "gdscc.longitude",
                         "name": "Longitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5661,6 +7259,15 @@
                         },
                         "key": "gdscc.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5715,8 +7322,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "gdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     },
                     {
                         "hints": {
@@ -5743,6 +7351,15 @@
                         },
                         "key": "gdscc.time.zone.offset",
                         "name": "Time zone offset"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5753,7 +7370,7 @@
                 "key": "gdscc.utc.time",
                 "namespace": "deep.space.network"
             },
-            "name": "UTC time",
+            "name": "UTC",
             "telemetry": {
                 "values": [
                     {
@@ -5761,8 +7378,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "gdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "gdscc.utc.time"
                     }
                 ]
             },
@@ -5866,6 +7484,15 @@
                         },
                         "key": "mdscc.friendly.name",
                         "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5885,6 +7512,15 @@
                         },
                         "key": "mdscc.latitude",
                         "name": "Latitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5904,6 +7540,15 @@
                         },
                         "key": "mdscc.longitude",
                         "name": "Longitude"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5923,6 +7568,15 @@
                         },
                         "key": "mdscc.name",
                         "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -5977,8 +7631,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "mdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     },
                     {
                         "hints": {
@@ -6005,6 +7660,15 @@
                         },
                         "key": "mdscc.time.zone.offset",
                         "name": "Time zone offset"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6015,7 +7679,7 @@
                 "key": "mdscc.utc.time",
                 "namespace": "deep.space.network"
             },
-            "name": "UTC time",
+            "name": "UTC",
             "telemetry": {
                 "values": [
                     {
@@ -6023,8 +7687,9 @@
                         "hints": {
                             "domain": 1
                         },
-                        "key": "mdscc.utc.time",
-                        "name": "UTC time"
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
                     }
                 ]
             },
@@ -6040,11 +7705,13 @@
             "telemetry": {
                 "values": [
                     {
+                        "format": "utc",
                         "hints": {
                             "domain": 1
                         },
-                        "key": "timestamp",
-                        "name": "Timestamp"
+                        "key": "utc",
+                        "name": "Timestamp",
+                        "source": "timestamp"
                     }
                 ]
             },
