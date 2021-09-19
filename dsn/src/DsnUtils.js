@@ -6,7 +6,7 @@
  * need to be separated by a colon (eg. 'my.namespace:my.key').
  * @returns {Object} identifier
  */
- export const deserializeIdentifier = identifier => {
+export function deserializeIdentifier(identifier) {
     var tokens = identifier.split(':');
     return {
         namespace: tokens[0],
@@ -20,7 +20,7 @@
  * @param {string} dish - The name of a dish (eg. 'dss14').
  * @returns {string} The station name (eg. 'gdscc').
  */
-export const getStationNameByDish = dish => {
+export function getStationNameByDish(dish) {
     switch (dish.toLowerCase()) {
         case 'dss14':
         case 'dss24':
@@ -51,7 +51,7 @@ export const getStationNameByDish = dish => {
  * @param {string} attribute - The name of the attribute to parse.
  * @returns {(number|string)} The parsed attribute as a floating point number or a string.
  */
-export const parseTelemetryAsFloatOrString = (element, attribute) => {
+export function parseTelemetryAsFloatOrString(element, attribute) {
     return isNaN(parseFloat(element.getAttribute(attribute))) ? element.getAttribute(attribute) : parseFloat(element.getAttribute(attribute));
 }
 
@@ -63,7 +63,7 @@ export const parseTelemetryAsFloatOrString = (element, attribute) => {
  * @param {string} attribute - The name of the attribute to parse.
  * @returns {(number|string)} The parsed attribute as an integer or a string.
  */
-export const parseTelemetryAsIntegerOrString = (element, attribute) => {
+export function parseTelemetryAsIntegerOrString(element, attribute) {
     return isNaN(parseInt(element.getAttribute(attribute))) ? element.getAttribute(attribute) : parseInt(element.getAttribute(attribute), 10);
 }
 
@@ -74,7 +74,7 @@ export const parseTelemetryAsIntegerOrString = (element, attribute) => {
  * @param {Object} identifier - The identifier to convert.
  * @returns {string} The identifier as a string (eg. 'my.namespace:my.key').
  */
-export const serializeIdentifier = identifier => {
+export function serializeIdentifier(identifier) {
     return identifier.namespace + ':' + identifier.key;
 }
 
