@@ -26,13 +26,13 @@ define([
      * @returns {object} An object containing information about each site and its dishes.
      */
     DsnParser.prototype.parseSitesTag = function (sitesElement) {
-        var dishElement,
-            dishKey,
-            siteElement,
-            siteKey,
-            sites = {};
+        let dishElement;
+        let dishKey = '';
+        let siteElement;
+        let siteKey = '';
+        const sites = {};
 
-        for (var i = 0; i < sitesElement.children.length; i++) {
+        for (let i = 0; i < sitesElement.children.length; i++) {
             siteElement = sitesElement.children[i];
             siteKey = siteElement.getAttribute('name').toLowerCase();
 
@@ -41,7 +41,7 @@ define([
             sites[siteKey + '.station.longitude'] = parseFloat(siteElement.getAttribute('longitude'));
             sites[siteKey + '.station.latitude'] = parseFloat(siteElement.getAttribute('latitude'));
 
-            for (var j = 0; j < siteElement.children.length; j++) {
+            for (let j = 0; j < siteElement.children.length; j++) {
                 dishElement = siteElement.children[j];
                 dishKey = dishElement.getAttribute('name').toLowerCase();
 
@@ -62,11 +62,11 @@ define([
      * @returns {object} An object containing information about each spacecraft that is being tracked.
      */
     DsnParser.prototype.parseSpacecraftMapTag = function (spacecraftMapElement) {
-        var key,
-            spacecraftElement,
-            spacecrafts = {};
+        let key = '';
+        let spacecraftElement;
+        const spacecrafts = {};
 
-        for (var i = 0; i < spacecraftMapElement.children.length; i++) {
+        for (let i = 0; i < spacecraftMapElement.children.length; i++) {
             spacecraftElement = spacecraftMapElement.children[i];
             key = spacecraftElement.getAttribute('name').toLowerCase();
 
@@ -88,10 +88,11 @@ define([
      * Deep Space Network.
      */
     DsnParser.prototype.parseDsnConfig = function (xmlDocument) {
-        var configElements = xmlDocument.documentElement.children;
+        const configElements = xmlDocument.documentElement.children;
+        let element;
 
-        for (var i = 0; i < configElements.length; i++) {
-            var element = configElements[i];
+        for (let i = 0; i < configElements.length; i++) {
+            element = configElements[i];
 
             switch (element.tagName) {
                 case 'sites':
@@ -111,14 +112,14 @@ define([
      * @returns {object} An object containing the station's data.
      */
     DsnParser.prototype.parseStationTag = function (stationElement) {
-        var friendlyName = {},
-            key = stationElement.getAttribute('name').toLowerCase(),
-            latitude = {},
-            longitude = {},
-            name = {},
-            station = {},
-            timeZoneOffset = {},
-            utcTime = {};
+        const friendlyName = {};
+        const key = stationElement.getAttribute('name').toLowerCase();
+        const latitude = {};
+        const longitude = {};
+        const name = {};
+        const station = {};
+        const timeZoneOffset = {};
+        const utcTime = {};
 
         name[key + '.name'] = stationElement.getAttribute('name');
         friendlyName[key + '.friendly.name'] = stationElement.getAttribute('friendlyName');
@@ -147,26 +148,26 @@ define([
      * up signals and targets.
      */
     DsnParser.prototype.parseDishTag = function (dishElement) {
-        var azimuthAngle = {},
-            children = dishElement.children,
-            created = {},
-            dish = {},
-            elevationAngle = {},
-            friendlyName = {},
-            isArray = {},
-            isDdor = {},
-            isMspa = {},
-            key,
-            name = {},
-            stationKey,
-            type = {},
-            updated = {},
-            utcTime,
-            windSpeed = {};
-
-        key = dishElement.getAttribute('name').toLowerCase();
-        stationKey = DsnUtils.getStationNameByDish(key);
-        utcTime = this.dsn.data[stationKey + '.utc.time'];
+        const azimuthAngle = {};
+        let child;
+        const created = {};
+        const dish = {};
+        const elevationAngle = {};
+        const friendlyName = {};
+        const isArray = {};
+        const isDdor = {};
+        const isMspa = {};
+        const key = dishElement.getAttribute('name').toLowerCase();
+        const name = {};
+        let signal = {};
+        let spacecraftName = '';
+        const stationKey = DsnUtils.getStationNameByDish(key);
+        let target = {};
+        let targetName = '';
+        const type = {};
+        const updated = {};
+        const utcTime = this.dsn.data[stationKey + '.utc.time'];
+        const windSpeed = {};
 
         name[key + '.name'] = dishElement.getAttribute('name');
         friendlyName[key + '.friendly.name'] = this.dsn.data[key + '.dish.friendly.name'];
@@ -195,14 +196,13 @@ define([
         dish[key + '.signals'] = [];
         dish[key + '.targets'] = [];
 
-        for (var i = 0; i < children.length; i++) {
-            var child = children[i];
+        for (let i = 0; i < dishElement.children.length; i++) {
+            child = dishElement.children[i];
 
             switch (child.tagName) {
                 case 'downSignal':
                 case 'upSignal':
-                    var signal = {},
-                        spacecraftName = child.getAttribute('spacecraft').toLowerCase();
+                    spacecraftName = child.getAttribute('spacecraft').toLowerCase();
 
                     signal[key + '.signal.direction'] = child.tagName.substring(0, child.tagName.length - 6);
                     signal[key + '.signal.type'] = child.getAttribute('signalType');
@@ -217,8 +217,7 @@ define([
                     dish[key + '.signals'].push(signal);
                     break;
                 case 'target':
-                    var target = {},
-                        targetName = child.getAttribute('name').toLowerCase();
+                    targetName = child.getAttribute('name').toLowerCase();
 
                     target[key + '.target.name'] = child.getAttribute('name');
                     target[key + '.target.id'] = DsnUtils.parseTelemetryAsIntegerOrString(child, 'id');
@@ -253,10 +252,11 @@ define([
      * @param {Document} xmlDocument - The XML document representing the Deep Space Network's data.
      */
     DsnParser.prototype.parseDsnData = function (xmlDocument) {
-        var dsnElements = xmlDocument.documentElement.children;
+        const dsnElements = xmlDocument.documentElement.children;
+        let element;
 
-        for (var i = 0; i < dsnElements.length; i++) {
-            var element = dsnElements[i];
+        for (let i = 0; i < dsnElements.length; i++) {
+            element = dsnElements[i];
 
             switch (element.tagName) {
                 case 'station':

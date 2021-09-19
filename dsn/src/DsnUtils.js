@@ -7,7 +7,7 @@
  * @returns {Object} identifier
  */
 export function deserializeIdentifier(identifier) {
-    var tokens = identifier.split(':');
+    const tokens = identifier.split(':');
 
     return {
         namespace: tokens[0],

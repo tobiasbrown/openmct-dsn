@@ -8,19 +8,18 @@ define([
     DsnUtils,
     DsnParser
 ) {
+    let compositionProvider;
+    let config;
+    let dictionary;
+    const listeners = {};
+    let objectProvider;
+    let realTimeProvider;
 
-    var compositionProvider,
-        config,
-        dictionary,
-        listeners = {},
-        objectProvider,
-        realTimeProvider;
-
-    var DSN_CONFIG_SOURCE = 'https://eyes.nasa.gov/dsn/config.xml',
-        DSN_KEY = 'dsn',
-        DSN_NAMESPACE = 'deep.space.network',
-        DSN_TELEMETRY_SOURCE = 'https://eyes.nasa.gov/dsn/data/dsn.xml',
-        DSN_TELEMETRY_TYPE = 'dsn.telemetry';
+    const DSN_CONFIG_SOURCE = 'https://eyes.nasa.gov/dsn/config.xml';
+    const DSN_KEY = 'dsn';
+    const DSN_NAMESPACE = 'deep.space.network';
+    const DSN_TELEMETRY_SOURCE = 'https://eyes.nasa.gov/dsn/data/dsn.xml';
+    const DSN_TELEMETRY_TYPE = 'dsn.telemetry';
 
     function checkFetchStatus(response) {
         if (response.status >= 200 && response.status < 300) {
@@ -31,19 +30,16 @@ define([
     }
 
     function getDsnConfiguration() {
-        var url = '/proxyUrl?url=' + encodeURIComponent(DSN_CONFIG_SOURCE);
+        const url = '/proxyUrl?url=' + encodeURIComponent(DSN_CONFIG_SOURCE);
 
         return fetch(url)
             .then(checkFetchStatus)
             .then(response => response.text())
             .then(data => {
-                var domParser = new DOMParser(),
-                    dsn,
-                    parser = new DsnParser(),
-                    xml;
-
-                xml = domParser.parseFromString(data, 'application/xml');
-                dsn = parser.parseXml(xml);
+                const domParser = new DOMParser();
+                const parser = new DsnParser();
+                const xml = domParser.parseFromString(data, 'application/xml');
+                const dsn = parser.parseXml(xml);
                 config = dsn.data;
             })
             .catch(error => console.error('Error fetching DSN config: ', error));
@@ -51,20 +47,17 @@ define([
 
     function getDsnData(domainObject) {
         // Add the same query string parameter the DSN site sends with each request
-        var url = '/proxyUrl?url=' + encodeURIComponent(DSN_TELEMETRY_SOURCE + '?r=' + Math.floor(new Date().getTime() / 5000));
+        const url = '/proxyUrl?url=' + encodeURIComponent(DSN_TELEMETRY_SOURCE + '?r=' + Math.floor(new Date().getTime() / 5000));
 
         return fetch(url)
             .then(checkFetchStatus)
             .then(response => response.text())
             .then(data => {
-                var domParser = new DOMParser(),
-                    dsn,
-                    dsnData = '',
-                    parser = new DsnParser(config),
-                    xml;
-
-                xml = domParser.parseFromString(data, 'application/xml');
-                dsn = parser.parseXml(xml);
+                const domParser = new DOMParser();
+                const parser = new DsnParser(config);
+                let dsnData = '';
+                const xml = domParser.parseFromString(data, 'application/xml');
+                const dsn = parser.parseXml(xml);
 
                 if (dsn.data.hasOwnProperty(domainObject.identifier.key)) {
                     if (typeof dsn.data[domainObject.identifier.key] === 'object') {
@@ -110,7 +103,8 @@ define([
                 return Promise.resolve(Object.keys(dictionary.domainObjects).filter(function (key) {
                     return dictionary.domainObjects[key].location === DSN_NAMESPACE + ':' + DSN_KEY;
                 }).map(function (key) {
-                    var childId = DsnUtils.deserializeIdentifier(key);
+                    const childId = DsnUtils.deserializeIdentifier(key);
+
                     return {
                         namespace: childId.namespace,
                         key: childId.key
@@ -119,7 +113,8 @@ define([
             } else {
                 return Promise.resolve(
                     dictionary.domainObjects[DsnUtils.serializeIdentifier(domainObject.identifier)].composition.map(function (key) {
-                        var childId = DsnUtils.deserializeIdentifier(key);
+                        const childId = DsnUtils.deserializeIdentifier(key);
+
                         return {
                             namespace: childId.namespace,
                             key: childId.key
@@ -143,7 +138,7 @@ define([
             listeners[domainObject.identifier.key].push(callback);
 
             // DSN data is updated every 5 seconds
-            var interval = setInterval(function () {
+            const interval = setInterval(function () {
                 getDsnData(domainObject).then(function (datum) {
                     // Invoke the callback with the updated datum
                     if (Array.isArray(datum)) {
