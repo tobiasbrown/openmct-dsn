@@ -8,6 +8,7 @@
  */
 export function deserializeIdentifier(identifier) {
     var tokens = identifier.split(':');
+
     return {
         namespace: tokens[0],
         key: tokens[1]
