@@ -8,8 +8,10 @@ module.exports = {
     'extends': [
         'eslint:recommended'
     ],
+    'parser': '@babel/eslint-parser',
     'parserOptions': {
         'ecmaVersion': 12,
+        'requireConfigFile': false,
         'sourceType': 'module'
     },
     'rules': {
