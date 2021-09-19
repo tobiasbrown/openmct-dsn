@@ -65,7 +65,7 @@ export function parseTelemetryAsFloatOrString(element, attribute) {
  * @returns {(number|string)} The parsed attribute as an integer or a string.
  */
 export function parseTelemetryAsIntegerOrString(element, attribute) {
-    return isNaN(parseInt(element.getAttribute(attribute))) ? element.getAttribute(attribute) : parseInt(element.getAttribute(attribute), 10);
+    return isNaN(parseInt(element.getAttribute(attribute), 10)) ? element.getAttribute(attribute) : parseInt(element.getAttribute(attribute), 10);
 }
 
 /**
