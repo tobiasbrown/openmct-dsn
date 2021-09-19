@@ -27,20 +27,20 @@ export function getStationNameByDish(dish) {
         case 'dss24':
         case 'dss25':
         case 'dss26':
-            return 'gdscc'
+            return 'gdscc';
         case 'dss34':
         case 'dss35':
         case 'dss36':
         case 'dss43':
-            return 'cdscc'
+            return 'cdscc';
         case 'dss54':
         case 'dss55':
         case 'dss56':
         case 'dss63':
         case 'dss65':
-            return 'mdscc'
+            return 'mdscc';
         default:
-            console.warn('Unknown dish: ', dish)
+            console.warn('Unknown dish: ', dish);
     }
 }
 
@@ -85,4 +85,4 @@ export default {
     parseTelemetryAsFloatOrString: parseTelemetryAsFloatOrString,
     parseTelemetryAsIntegerOrString: parseTelemetryAsIntegerOrString,
     serializeIdentifier: serializeIdentifier
-}
+};
