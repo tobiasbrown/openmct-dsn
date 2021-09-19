@@ -38,7 +38,10 @@ module.exports = {
         'guard-for-in': 'error',
         'indent': [
             'error',
-            4
+            4,
+            {
+                'SwitchCase': 1
+            }
         ],
         'key-spacing': [
             'error',
