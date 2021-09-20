@@ -6,8 +6,9 @@
  * need to be separated by a colon (eg. 'my.namespace:my.key').
  * @returns {Object} identifier
  */
- export const deserializeIdentifier = identifier => {
-    var tokens = identifier.split(':');
+export function deserializeIdentifier(identifier) {
+    const tokens = identifier.split(':');
+
     return {
         namespace: tokens[0],
         key: tokens[1]
@@ -20,26 +21,26 @@
  * @param {string} dish - The name of a dish (eg. 'dss14').
  * @returns {string} The station name (eg. 'gdscc').
  */
-export const getStationNameByDish = dish => {
+export function getStationNameByDish(dish) {
     switch (dish.toLowerCase()) {
         case 'dss14':
         case 'dss24':
         case 'dss25':
         case 'dss26':
-            return 'gdscc'
+            return 'gdscc';
         case 'dss34':
         case 'dss35':
         case 'dss36':
         case 'dss43':
-            return 'cdscc'
+            return 'cdscc';
         case 'dss54':
         case 'dss55':
         case 'dss56':
         case 'dss63':
         case 'dss65':
-            return 'mdscc'
+            return 'mdscc';
         default:
-            console.warn('Unknown dish: ', dish)
+            console.warn('Unknown dish: ', dish);
     }
 }
 
@@ -51,7 +52,7 @@ export const getStationNameByDish = dish => {
  * @param {string} attribute - The name of the attribute to parse.
  * @returns {(number|string)} The parsed attribute as a floating point number or a string.
  */
-export const parseTelemetryAsFloatOrString = (element, attribute) => {
+export function parseTelemetryAsFloatOrString(element, attribute) {
     return isNaN(parseFloat(element.getAttribute(attribute))) ? element.getAttribute(attribute) : parseFloat(element.getAttribute(attribute));
 }
 
@@ -63,8 +64,8 @@ export const parseTelemetryAsFloatOrString = (element, attribute) => {
  * @param {string} attribute - The name of the attribute to parse.
  * @returns {(number|string)} The parsed attribute as an integer or a string.
  */
-export const parseTelemetryAsIntegerOrString = (element, attribute) => {
-    return isNaN(parseInt(element.getAttribute(attribute))) ? element.getAttribute(attribute) : parseInt(element.getAttribute(attribute), 10);
+export function parseTelemetryAsIntegerOrString(element, attribute) {
+    return isNaN(parseInt(element.getAttribute(attribute), 10)) ? element.getAttribute(attribute) : parseInt(element.getAttribute(attribute), 10);
 }
 
 /**
@@ -74,7 +75,7 @@ export const parseTelemetryAsIntegerOrString = (element, attribute) => {
  * @param {Object} identifier - The identifier to convert.
  * @returns {string} The identifier as a string (eg. 'my.namespace:my.key').
  */
-export const serializeIdentifier = identifier => {
+export function serializeIdentifier(identifier) {
     return identifier.namespace + ':' + identifier.key;
 }
 
@@ -84,4 +85,4 @@ export default {
     parseTelemetryAsFloatOrString: parseTelemetryAsFloatOrString,
     parseTelemetryAsIntegerOrString: parseTelemetryAsIntegerOrString,
     serializeIdentifier: serializeIdentifier
-}
+};

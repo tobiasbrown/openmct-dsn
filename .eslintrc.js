@@ -8,8 +8,10 @@ module.exports = {
     'extends': [
         'eslint:recommended'
     ],
+    'parser': '@babel/eslint-parser',
     'parserOptions': {
         'ecmaVersion': 12,
+        'requireConfigFile': false,
         'sourceType': 'module'
     },
     'rules': {
@@ -38,7 +40,10 @@ module.exports = {
         'guard-for-in': 'error',
         'indent': [
             'error',
-            4
+            4,
+            {
+                'SwitchCase': 1
+            }
         ],
         'key-spacing': [
             'error',
