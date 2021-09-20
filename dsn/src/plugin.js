@@ -59,7 +59,7 @@ define([
                 const xml = domParser.parseFromString(data, 'application/xml');
                 const dsn = parser.parseXml(xml);
 
-                if (dsn.data.hasOwnProperty(domainObject.identifier.key)) {
+                if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
                     if (typeof dsn.data[domainObject.identifier.key] === 'object') {
                         dsnData = dsn.data[domainObject.identifier.key];
                     } else {
