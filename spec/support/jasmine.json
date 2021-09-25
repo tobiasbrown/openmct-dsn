@@ -1,0 +1,9 @@
+{
+    "jsLoader": "import",
+    "random": false,
+    "spec_dir": "/dsn/src",
+    "spec_files": [
+        "**/*[sS]pec.?(m)js"
+    ],
+    "stopSpecOnExpectationFailure": false
+}
