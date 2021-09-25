@@ -5,12 +5,23 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/eslint-parser": "^7.15.7",
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "jasmine": "^3.9.0",
+    "karma": "^6.3.4",
+    "karma-cli": "^2.0.0",
+    "karma-firefox-launcher": "^2.1.1",
+    "karma-jasmine": "^4.0.1",
+    "karma-sourcemap-loader": "^0.3.8",
+    "karma-webpack": "^5.0.0",
+    "raw-loader": "^4.0.2",
+    "webpack": "^5.53.0"
   },
   "main": "plugin.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "lint": "eslint . --ignore-pattern *Spec.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start --single-run",
+    "test:debug": "NODE_ENV=debug karma start --no-single-run"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,7 @@ module.exports = {
         'amd': true,
         'browser': true,
         'es2021': true,
+        'jasmine': true,
         'node': true
     },
     'extends': [
