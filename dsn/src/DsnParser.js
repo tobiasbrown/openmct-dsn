@@ -204,6 +204,7 @@ define([
                 case 'upSignal':
                     spacecraftName = child.getAttribute('spacecraft').toLowerCase();
 
+                    signal = {};
                     signal[key + '.signal.direction'] = child.tagName.substring(0, child.tagName.length - 6);
                     signal[key + '.signal.type'] = child.getAttribute('signalType');
                     signal[key + '.signal.type.debug'] = child.getAttribute('signalTypeDebug');
@@ -219,6 +220,7 @@ define([
                 case 'target':
                     targetName = child.getAttribute('name').toLowerCase();
 
+                    target = {};
                     target[key + '.target.name'] = child.getAttribute('name');
                     target[key + '.target.id'] = DsnUtils.parseTelemetryAsIntegerOrString(child, 'id');
                     target[key + '.target.upleg.range'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'uplegRange');
