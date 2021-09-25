@@ -73,8 +73,8 @@ describe('DsnParser', function () {
         it('with a sites element', function () {
             expect(dsn.data['mdscc.name']).toBe('mdscc');
             expect(dsn.data['mdscc.friendly.name']).toBe('Madrid');
-            expect(dsn.data['mdscc.longitude']).toBe(-4.2480085);
-            expect(dsn.data['mdscc.latitude']).toBe(40.2413554);
+            expect(dsn.data['mdscc.station.longitude']).toBe(-4.2480085);
+            expect(dsn.data['mdscc.station.latitude']).toBe(40.2413554);
         });
 
         it('with a spacecraftMap element', function () {
