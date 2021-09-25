@@ -23,6 +23,10 @@ describe('DsnUtils', function () {
             downSignal = document.createElement('downSignal');
         });
 
+        afterEach(function () {
+            downSignal = null;
+        });
+
         it('as a float', function () {
             let dataRate;
 
