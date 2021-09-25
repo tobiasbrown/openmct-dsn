@@ -1,6 +1,6 @@
 
 define([
-    './res/dsn-dictionary.json',
+    '../res/dsn-dictionary.json',
     './DsnUtils',
     './DsnParser'
 ], function (
