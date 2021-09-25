@@ -10,13 +10,13 @@ describe('DsnParser', function () {
         let dsnParser;
         let dsnXml;
 
-        beforeAll(function () {
+        beforeEach(function () {
             dsnXml = domParser.parseFromString('<dsn></dsn>', 'application/xml');
             dsnParser = new DsnParser();
             dsn = dsnParser.parseXml(dsnXml);
         });
 
-        afterAll(function () {
+        afterEach(function () {
             dsn = null;
             dsnParser = null;
             dsnXml = null;
@@ -34,14 +34,14 @@ describe('DsnParser', function () {
         let dsnXml;
         let xml;
 
-        beforeAll(function () {
+        beforeEach(function () {
             xml = '<dsn><spacecraft id="1" name="VGR1" friendlyName="Voyager 1" /></dsn>';
             dsnXml = domParser.parseFromString(xml, 'application/xml');
             dsnParser = new DsnParser();
             dsn = dsnParser.parseXml(dsnXml);
         });
 
-        afterAll(function () {
+        afterEach(function () {
             dsn = null;
             dsnParser = null;
             dsnXml = null;
@@ -58,13 +58,13 @@ describe('DsnParser', function () {
         let dsnParser;
         let dsnXml;
 
-        beforeAll(function () {
+        beforeEach(function () {
             dsnXml = domParser.parseFromString(testXmlConfigResponse, 'application/xml');
             dsnParser = new DsnParser();
             dsn = dsnParser.parseXml(dsnXml);
         });
 
-        afterAll(function () {
+        afterEach(function () {
             dsn = null;
             dsnParser = null;
             dsnXml = null;
@@ -90,13 +90,13 @@ describe('DsnParser', function () {
         let dsnParser;
         let dsnXml;
 
-        beforeAll(function () {
+        beforeEach(function () {
             dsnXml = domParser.parseFromString(testXmlResponse, 'application/xml');
             dsnParser = new DsnParser();
             dsn = dsnParser.parseXml(dsnXml);
         });
 
-        afterAll(function () {
+        afterEach(function () {
             dsn = null;
             dsnParser = null;
             dsnXml = null;
