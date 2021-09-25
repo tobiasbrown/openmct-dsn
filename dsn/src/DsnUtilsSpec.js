@@ -2,13 +2,13 @@ import DsnUtils from './DsnUtils.js';
 
 describe('DsnUtils', function () {
     it('deserializes a domain object identifier', function () {
-        var identifier = DsnUtils.deserializeIdentifier('deep.space.network:canberra');
+        const identifier = DsnUtils.deserializeIdentifier('deep.space.network:canberra');
         expect(identifier.namespace).toBe('deep.space.network');
         expect(identifier.key).toBe('canberra');
     });
 
     it('serializes a domain object identifier', function () {
-        var identifer = DsnUtils.serializeIdentifier({
+        const identifer = DsnUtils.serializeIdentifier({
             namespace: 'deep.space.network',
             key: 'madrid'
         });
@@ -17,14 +17,14 @@ describe('DsnUtils', function () {
     });
 
     describe('parses telemetry', function () {
-        var downSignal;
+        let downSignal;
 
         beforeEach(function () {
             downSignal = document.createElement('downSignal');
         });
 
         it('as a float', function () {
-            var dataRate;
+            let dataRate;
 
             downSignal.setAttribute('dataRate', '160.002853');
             dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
@@ -32,9 +32,9 @@ describe('DsnUtils', function () {
         });
 
         it('as a string when a float can not be parsed', function () {
-            var dataRate,
-                frequency,
-                power;
+            let dataRate;
+            let frequency;
+            let power;
 
             downSignal.setAttribute('dataRate', '');
             downSignal.setAttribute('frequency', ' ');
@@ -50,7 +50,7 @@ describe('DsnUtils', function () {
         });
 
         it('as an integer', function () {
-            var dataRate;
+            let dataRate;
 
             downSignal.setAttribute('dataRate', '160');
             dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
@@ -58,9 +58,9 @@ describe('DsnUtils', function () {
         });
 
         it('as a string when an integer can not be parsed', function () {
-            var dataRate,
-                frequency,
-                power;
+            let dataRate;
+            let frequency;
+            let power;
 
             downSignal.setAttribute('dataRate', '');
             downSignal.setAttribute('frequency', ' ');

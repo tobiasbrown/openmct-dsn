@@ -3,12 +3,12 @@ import testXmlConfigResponse from '!!raw-loader!../res/test-dsn-config-response.
 import testXmlResponse from '!!raw-loader!../res/test-dsn-response.xml';
 
 describe('DsnParser', function () {
-    var domParser = new DOMParser();
+    const domParser = new DOMParser();
 
     describe('parses a response', function () {
-        var dsn,
-            dsnParser,
-            dsnXml;
+        let dsn;
+        let dsnParser;
+        let dsnXml;
 
         beforeAll(function () {
             dsnXml = domParser.parseFromString('<dsn></dsn>', 'application/xml');
@@ -29,10 +29,10 @@ describe('DsnParser', function () {
     });
 
     describe('parses a response', function () {
-        var dsn,
-            dsnParser,
-            dsnXml,
-            xml;
+        let dsn;
+        let dsnParser;
+        let dsnXml;
+        let xml;
 
         beforeAll(function () {
             xml = '<dsn><spacecraft id="1" name="VGR1" friendlyName="Voyager 1" /></dsn>';
@@ -54,9 +54,9 @@ describe('DsnParser', function () {
     });
 
     describe('parses a config response', function () {
-        var dsn,
-            dsnParser,
-            dsnXml;
+        let dsn;
+        let dsnParser;
+        let dsnXml;
 
         beforeAll(function () {
             dsnXml = domParser.parseFromString(testXmlConfigResponse, 'application/xml');
@@ -86,9 +86,9 @@ describe('DsnParser', function () {
     });
 
     describe('parses a response', function () {
-        var dsn,
-            dsnParser,
-            dsnXml;
+        let dsn;
+        let dsnParser;
+        let dsnXml;
 
         beforeAll(function () {
             dsnXml = domParser.parseFromString(testXmlResponse, 'application/xml');
@@ -112,9 +112,9 @@ describe('DsnParser', function () {
 
         describe('with a dish element', function () {
             it('containing signals and targets', function () {
-                var downSignal = {},
-                    upSignal = {},
-                    target = {};
+                let downSignal = {};
+                let upSignal = {};
+                let target = {};
 
                 expect(dsn.data['dss14.antenna']).toBeDefined();
                 expect(dsn.data['dss14.name']).toBe('DSS14');
@@ -161,8 +161,8 @@ describe('DsnParser', function () {
             });
 
             it('containing signals with no data rate, frequency or power', function () {
-                var mroDownSignal = dsn.data['dss35.signals'][1],
-                    tgoDownSignal = dsn.data['dss35.signals'][0];
+                const mroDownSignal = dsn.data['dss35.signals'][1];
+                const tgoDownSignal = dsn.data['dss35.signals'][0];
 
                 expect(mroDownSignal['dss35.signal.data.rate']).toBe('');
                 expect(mroDownSignal['dss35.signal.frequency']).toBe('');
