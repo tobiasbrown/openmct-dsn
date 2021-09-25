@@ -104,10 +104,10 @@ describe('DsnParser', function () {
 
         it('with a station element', function () {
             expect(dsn.data['cdscc.station']).toBeDefined();
-            expect(dsn.data['cdscc.name']).toBe('cdscc');
-            expect(dsn.data['cdscc.friendly.name']).toBe('Canberra');
-            expect(dsn.data['cdscc.utc.time']).toBe(1549708172929);
-            expect(dsn.data['cdscc.time.zone.offset']).toBe(39600000);
+            expect(dsn.data['cdscc.name']['cdscc.name']).toBe('cdscc');
+            expect(dsn.data['cdscc.friendly.name']['cdscc.friendly.name']).toBe('Canberra');
+            expect(dsn.data['cdscc.utc.time']['cdscc.utc.time']).toBe(1549708172929);
+            expect(dsn.data['cdscc.time.zone.offset']['cdscc.time.zone.offset']).toBe(39600000);
         });
 
         describe('with a dish element', function () {
