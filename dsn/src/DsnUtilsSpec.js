@@ -1,4 +1,4 @@
-import DsnUtils from './DsnUtils.js'
+import DsnUtils from './DsnUtils.js';
 
 describe('DsnUtils', function () {
     it('deserializes a domain object identifier', function () {
