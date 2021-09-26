@@ -1,3 +1,10 @@
+import {
+    DSN_CONFIG_SOURCE,
+    DSN_KEY,
+    DSN_NAMESPACE,
+    DSN_TELEMETRY_SOURCE,
+    DSN_TELEMETRY_TYPE
+} from 'constants.js';
 
 define([
     '../res/dsn-dictionary.json',
@@ -14,12 +21,6 @@ define([
     const listeners = {};
     let objectProvider;
     let realTimeProvider;
-
-    const DSN_CONFIG_SOURCE = 'https://eyes.nasa.gov/dsn/config.xml';
-    const DSN_KEY = 'dsn';
-    const DSN_NAMESPACE = 'deep.space.network';
-    const DSN_TELEMETRY_SOURCE = 'https://eyes.nasa.gov/dsn/data/dsn.xml';
-    const DSN_TELEMETRY_TYPE = 'dsn.telemetry';
 
     function checkFetchStatus(response) {
         if (response.status >= 200 && response.status < 300) {
