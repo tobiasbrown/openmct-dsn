@@ -19,7 +19,7 @@
   "main": "plugin.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "lint": "eslint . --ignore-pattern *Spec.js",
+    "lint": "eslint .",
     "test": "karma start --single-run",
     "test:debug": "NODE_ENV=debug karma start --no-single-run"
   },
