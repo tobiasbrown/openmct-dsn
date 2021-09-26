@@ -16,6 +16,12 @@ describe('DsnUtils', function () {
         expect(identifer).toBe('deep.space.network:madrid');
     });
 
+    it('logs a warning to the console when unknown dish is provided', function () {
+        spyOn(console, 'warn');
+        DsnUtils.getStationNameByDish('iss');
+        expect(console.warn).toHaveBeenCalled();
+    });
+
     describe('returns Goldstone station name for', function () {
         let station;
 
