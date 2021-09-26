@@ -16,6 +16,95 @@ describe('DsnUtils', function () {
         expect(identifer).toBe('deep.space.network:madrid');
     });
 
+    describe('returns Goldstone station name for', function () {
+        let station;
+
+        afterEach(function () {
+            station = null;
+        });
+
+        it('DSS14', function () {
+            station = DsnUtils.getStationNameByDish('dss14');
+            expect(station).toBe('gdscc');
+        });
+
+        it('DSS24', function () {
+            station = DsnUtils.getStationNameByDish('dss24');
+            expect(station).toBe('gdscc');
+        });
+
+        it('DSS25', function () {
+            station = DsnUtils.getStationNameByDish('dss25');
+            expect(station).toBe('gdscc');
+        });
+
+        it('DSS26', function () {
+            station = DsnUtils.getStationNameByDish('dss26');
+            expect(station).toBe('gdscc');
+        });
+    });
+
+    describe('returns Canberra station name for', function () {
+        let station;
+
+        afterEach(function () {
+            station = null;
+        });
+
+        it('DSS34', function () {
+            station = DsnUtils.getStationNameByDish('dss34');
+            expect(station).toBe('cdscc');
+        });
+
+        it('DSS35', function () {
+            station = DsnUtils.getStationNameByDish('dss35');
+            expect(station).toBe('cdscc');
+        });
+
+        it('DSS36', function () {
+            station = DsnUtils.getStationNameByDish('dss36');
+            expect(station).toBe('cdscc');
+        });
+
+        it('DSS43', function () {
+            station = DsnUtils.getStationNameByDish('dss43');
+            expect(station).toBe('cdscc');
+        });
+    });
+
+    describe('returns Madrid station name for', function () {
+        let station;
+
+        afterEach(function () {
+            station = null;
+        });
+
+        it('DSS54', function () {
+            station = DsnUtils.getStationNameByDish('dss54');
+            expect(station).toBe('mdscc');
+        });
+
+        it('DSS55', function () {
+            station = DsnUtils.getStationNameByDish('dss55');
+            expect(station).toBe('mdscc');
+        });
+
+        it('DSS56', function () {
+            station = DsnUtils.getStationNameByDish('dss56');
+            expect(station).toBe('mdscc');
+        });
+
+        it('DSS63', function () {
+            station = DsnUtils.getStationNameByDish('dss63');
+            expect(station).toBe('mdscc');
+        });
+
+        it('DSS65', function () {
+            station = DsnUtils.getStationNameByDish('dss65');
+            expect(station).toBe('mdscc');
+        });
+    });
+
     describe('parses telemetry', function () {
         let downSignal;
 
