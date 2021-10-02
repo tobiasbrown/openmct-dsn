@@ -8,13 +8,13 @@ import {
 
 import DsnParser from './DsnParser.js';
 import DsnUtils from './DsnUtils.js';
+import { objectProvider } from './dsn-object-provider.js';
 import baseDictionary from '../res/dsn-dictionary.json';
 
 let compositionProvider;
 let config;
 let dictionary;
 const listeners = {};
-let objectProvider;
 let realTimeProvider;
 
 function checkFetchStatus(response) {
@@ -68,27 +68,6 @@ function getDsnData(domainObject) {
         })
         .catch(error => console.error('Error fetching DSN data: ', error));
 }
-
-objectProvider = {
-    get: function (identifier) {
-        if (identifier.key === 'dsn') {
-            return Promise.resolve({
-                identifier: {
-                    namespace: 'deep.space.network',
-                    key: 'dsn'
-                },
-                type: 'folder',
-                location: 'ROOT',
-                name: 'Deep Space Network',
-                composition: []
-            });
-        } else {
-            return Promise.resolve(
-                dictionary.domainObjects[DsnUtils.serializeIdentifier(identifier)]
-            );
-        }
-    }
-};
 
 compositionProvider = {
     appliesTo: function (domainObject) {
