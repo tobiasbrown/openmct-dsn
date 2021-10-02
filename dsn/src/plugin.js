@@ -1,46 +1,17 @@
 import {
     DSN_KEY,
     DSN_NAMESPACE,
-    DSN_TELEMETRY_SOURCE,
     DSN_TELEMETRY_TYPE
 } from './constants.js';
 
 import DsnParser from './DsnParser.js';
 import { compositionProvider } from './dsn-composition-provider.js';
 import { objectProvider } from './dsn-object-provider.js';
-import { checkFetchStatus, getDsnConfiguration } from './dsn-requests.js';
+import { getDsnConfiguration, getDsnData } from './dsn-requests.js';
 
 let config;
 const listeners = {};
 let realTimeProvider;
-
-function getDsnData(domainObject) {
-    // Add the same query string parameter the DSN site sends with each request
-    const url = '/proxyUrl?url=' + encodeURIComponent(DSN_TELEMETRY_SOURCE + '?r=' + Math.floor(new Date().getTime() / 5000));
-
-    return fetch(url)
-        .then(checkFetchStatus)
-        .then(response => response.text())
-        .then(data => {
-            const domParser = new DOMParser();
-            const parser = new DsnParser(config);
-            let dsnData = '';
-            const xml = domParser.parseFromString(data, 'application/xml');
-            const dsn = parser.parseXml(xml);
-
-            if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
-                if (typeof dsn.data[domainObject.identifier.key] === 'object') {
-                    dsnData = dsn.data[domainObject.identifier.key];
-                } else {
-                    dsnData = {};
-                    dsnData[domainObject.identifier.key] = dsn.data[domainObject.identifier.key];
-                }
-            }
-
-            return dsnData;
-        })
-        .catch(error => console.error('Error fetching DSN data: ', error));
-}
 
 realTimeProvider = {
     supportsSubscribe: function (domainObject) {
@@ -56,16 +27,32 @@ realTimeProvider = {
 
         // DSN data is updated every 5 seconds
         const interval = setInterval(function () {
-            getDsnData(domainObject).then(function (datum) {
-                // Invoke the callback with the updated datum
-                if (Array.isArray(datum)) {
-                    datum.forEach(function (value) {
-                        callback(value);
-                    });
-                } else {
-                    callback(datum);
-                }
-            });
+            getDsnData()
+                .then(data => {
+                    const domParser = new DOMParser();
+                    const parser = new DsnParser(config);
+                    let dsnData = '';
+                    const xml = domParser.parseFromString(data, 'application/xml');
+                    const dsn = parser.parseXml(xml);
+
+                    if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
+                        if (typeof dsn.data[domainObject.identifier.key] === 'object') {
+                            dsnData = dsn.data[domainObject.identifier.key];
+                        } else {
+                            dsnData = {};
+                            dsnData[domainObject.identifier.key] = dsn.data[domainObject.identifier.key];
+                        }
+                    }
+
+                    // Invoke the callback with the updated datum
+                    if (Array.isArray(dsnData)) {
+                        dsnData.forEach(function (value) {
+                            callback(value);
+                        });
+                    } else {
+                        callback(dsnData);
+                    }
+                });
         }, 5000);
 
         return function () {
