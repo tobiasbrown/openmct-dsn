@@ -7,13 +7,10 @@ import {
 } from './constants.js';
 
 import DsnParser from './DsnParser.js';
-import DsnUtils from './DsnUtils.js';
+import { compositionProvider } from './dsn-composition-provider.js';
 import { objectProvider } from './dsn-object-provider.js';
-import baseDictionary from '../res/dsn-dictionary.json';
 
-let compositionProvider;
 let config;
-let dictionary;
 const listeners = {};
 let realTimeProvider;
 
@@ -68,37 +65,6 @@ function getDsnData(domainObject) {
         })
         .catch(error => console.error('Error fetching DSN data: ', error));
 }
-
-compositionProvider = {
-    appliesTo: function (domainObject) {
-        return domainObject.identifier.namespace === DSN_NAMESPACE && domainObject.composition !== undefined;
-    },
-    load: function (domainObject) {
-        if (domainObject.identifier.key === DSN_KEY) {
-            return Promise.resolve(Object.keys(dictionary.domainObjects).filter(function (key) {
-                return dictionary.domainObjects[key].location === DSN_NAMESPACE + ':' + DSN_KEY;
-            }).map(function (key) {
-                const childId = DsnUtils.deserializeIdentifier(key);
-
-                return {
-                    namespace: childId.namespace,
-                    key: childId.key
-                };
-            }));
-        } else {
-            return Promise.resolve(
-                dictionary.domainObjects[DsnUtils.serializeIdentifier(domainObject.identifier)].composition.map(function (key) {
-                    const childId = DsnUtils.deserializeIdentifier(key);
-
-                    return {
-                        namespace: childId.namespace,
-                        key: childId.key
-                    };
-                })
-            );
-        }
-    }
-};
 
 realTimeProvider = {
     supportsSubscribe: function (domainObject) {
@@ -324,8 +290,6 @@ export default function DsnPlugin() {
                 return !isNaN(parseFloat(lightTime));
             }
         });
-
-        dictionary = baseDictionary;
 
         getDsnConfiguration();
 
