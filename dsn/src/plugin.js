@@ -5,68 +5,10 @@ import {
 } from './constants.js';
 
 import DsnParser from './DsnParser.js';
+import DsnTelemetryProvider from './DsnTelemetryProvider.js';
 import { compositionProvider } from './dsn-composition-provider.js';
 import { objectProvider } from './dsn-object-provider.js';
-import { getDsnConfiguration, getDsnData } from './dsn-requests.js';
-
-let config;
-const listeners = {};
-let realTimeProvider;
-
-realTimeProvider = {
-    supportsSubscribe: function (domainObject) {
-        return domainObject.type === DSN_TELEMETRY_TYPE || domainObject.type === 'table';
-    },
-    subscribe: function (domainObject, callback, options) {
-        // Keep track of the domain objects subscribed
-        if (!listeners[domainObject.identifier.key]) {
-            listeners[domainObject.identifier.key] = [];
-        }
-
-        listeners[domainObject.identifier.key].push(callback);
-
-        // DSN data is updated every 5 seconds
-        const interval = setInterval(function () {
-            getDsnData()
-                .then(data => {
-                    const domParser = new DOMParser();
-                    const parser = new DsnParser(config);
-                    let dsnData = '';
-                    const xml = domParser.parseFromString(data, 'application/xml');
-                    const dsn = parser.parseXml(xml);
-
-                    if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
-                        if (typeof dsn.data[domainObject.identifier.key] === 'object') {
-                            dsnData = dsn.data[domainObject.identifier.key];
-                        } else {
-                            dsnData = {};
-                            dsnData[domainObject.identifier.key] = dsn.data[domainObject.identifier.key];
-                        }
-                    }
-
-                    // Invoke the callback with the updated datum
-                    if (Array.isArray(dsnData)) {
-                        dsnData.forEach(function (value) {
-                            callback(value);
-                        });
-                    } else {
-                        callback(dsnData);
-                    }
-                });
-        }, 5000);
-
-        return function () {
-            // Stop polling the DSN site
-            clearInterval(interval);
-
-            // Unsubscribe domain object
-            listeners[domainObject.identifier.key] =
-                        listeners[domainObject.identifier.key].filter(function (c) {
-                            return c !== callback;
-                        });
-        };
-    }
-};
+import { getDsnConfiguration } from './dsn-requests.js';
 
 export default function DsnPlugin() {
     return function install(openmct) {
@@ -261,12 +203,11 @@ export default function DsnPlugin() {
                 const xml = domParser.parseFromString(data, 'application/xml');
                 const dsn = parser.parseXml(xml);
 
-                config = dsn.data;
+                openmct.telemetry.addProvider(new DsnTelemetryProvider(dsn.data));
             });
 
         openmct.objects.addProvider(DSN_NAMESPACE, objectProvider);
         openmct.composition.addProvider(compositionProvider);
-        openmct.telemetry.addProvider(realTimeProvider);
 
         // This type represents DSN domain objects with telemetry
         openmct.types.addType(DSN_TELEMETRY_TYPE, {
