@@ -1,5 +1,4 @@
 import {
-    DSN_CONFIG_SOURCE,
     DSN_KEY,
     DSN_NAMESPACE,
     DSN_TELEMETRY_SOURCE,
@@ -9,34 +8,11 @@ import {
 import DsnParser from './DsnParser.js';
 import { compositionProvider } from './dsn-composition-provider.js';
 import { objectProvider } from './dsn-object-provider.js';
+import { checkFetchStatus, getDsnConfiguration } from './dsn-requests.js';
 
 let config;
 const listeners = {};
 let realTimeProvider;
-
-function checkFetchStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return Promise.resolve(response);
-    } else {
-        return Promise.reject(new Error(response.statusText));
-    }
-}
-
-function getDsnConfiguration() {
-    const url = '/proxyUrl?url=' + encodeURIComponent(DSN_CONFIG_SOURCE);
-
-    return fetch(url)
-        .then(checkFetchStatus)
-        .then(response => response.text())
-        .then(data => {
-            const domParser = new DOMParser();
-            const parser = new DsnParser();
-            const xml = domParser.parseFromString(data, 'application/xml');
-            const dsn = parser.parseXml(xml);
-            config = dsn.data;
-        })
-        .catch(error => console.error('Error fetching DSN config: ', error));
-}
 
 function getDsnData(domainObject) {
     // Add the same query string parameter the DSN site sends with each request
@@ -291,7 +267,15 @@ export default function DsnPlugin() {
             }
         });
 
-        getDsnConfiguration();
+        getDsnConfiguration()
+            .then(data => {
+                const domParser = new DOMParser();
+                const parser = new DsnParser();
+                const xml = domParser.parseFromString(data, 'application/xml');
+                const dsn = parser.parseXml(xml);
+
+                config = dsn.data;
+            });
 
         openmct.objects.addProvider(DSN_NAMESPACE, objectProvider);
         openmct.composition.addProvider(compositionProvider);
