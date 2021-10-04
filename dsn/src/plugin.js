@@ -14,7 +14,6 @@ import {
     windSpeedToString
 } from './dsn-formatters.js';
 
-import DsnParser from './DsnParser.js';
 import DsnTelemetryProvider from './DsnTelemetryProvider.js';
 import { compositionProvider } from './dsn-composition-provider.js';
 import { objectProvider } from './dsn-object-provider.js';
@@ -41,14 +40,7 @@ export default function DsnPlugin() {
         openmct.telemetry.addFormat(lightTimeToString);
 
         getDsnConfiguration()
-            .then(data => {
-                const domParser = new DOMParser();
-                const parser = new DsnParser();
-                const xml = domParser.parseFromString(data, 'application/xml');
-                const dsn = parser.parseXml(xml);
-
-                openmct.telemetry.addProvider(new DsnTelemetryProvider(dsn.data));
-            });
+            .then(dsn => openmct.telemetry.addProvider(new DsnTelemetryProvider(dsn.data)));
 
         openmct.objects.addProvider(DSN_NAMESPACE, objectProvider);
         openmct.composition.addProvider(compositionProvider);

@@ -1,4 +1,3 @@
-import DsnParser from "./DsnParser.js";
 import { DSN_TELEMETRY_TYPE } from "./constants.js";
 import { getDsnData } from "./dsn-requests.js";
 
@@ -24,13 +23,9 @@ class DsnTelemetryProvider {
 
         // DSN data is updated every 5 seconds
         const interval = setInterval(function () {
-            getDsnData()
-                .then(data => {
-                    const domParser = new DOMParser();
-                    const parser = new DsnParser(config);
+            getDsnData(config)
+                .then(dsn => {
                     let dsnData = '';
-                    const xml = domParser.parseFromString(data, 'application/xml');
-                    const dsn = parser.parseXml(xml);
 
                     if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
                         if (typeof dsn.data[domainObject.identifier.key] === 'object') {
