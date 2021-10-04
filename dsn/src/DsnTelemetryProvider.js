@@ -7,7 +7,7 @@ class DsnTelemetryProvider {
     }
 
     supportsSubscribe(domainObject) {
-        return domainObject.type === DSN_TELEMETRY_TYPE || domainObject.type === 'table';
+        return domainObject.type === DSN_TELEMETRY_TYPE;
     }
 
     subscribe(domainObject, callback, options) {
