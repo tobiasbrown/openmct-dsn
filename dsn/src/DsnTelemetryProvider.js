@@ -47,7 +47,7 @@ class DsnTelemetryProvider {
                 });
         }, 5000);
 
-        return function () {
+        return function unsubscribe() {
             // Stop polling the DSN site
             clearInterval(interval);
 
