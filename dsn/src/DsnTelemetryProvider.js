@@ -6,6 +6,28 @@ class DsnTelemetryProvider {
         this.config = config;
     }
 
+    provideTelemetry(dsn, domainObject, callback) {
+        let dsnData = '';
+
+        if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
+            if (typeof dsn.data[domainObject.identifier.key] === 'object') {
+                dsnData = dsn.data[domainObject.identifier.key];
+            } else {
+                dsnData = {};
+                dsnData[domainObject.identifier.key] = dsn.data[domainObject.identifier.key];
+            }
+        }
+
+        // Invoke the callback with the updated datum
+        if (Array.isArray(dsnData)) {
+            dsnData.forEach(function (value) {
+                callback(value);
+            });
+        } else {
+            callback(dsnData);
+        }
+    }
+
     supportsSubscribe(domainObject) {
         return domainObject.type === DSN_TELEMETRY_TYPE;
     }
@@ -13,6 +35,7 @@ class DsnTelemetryProvider {
     subscribe(domainObject, callback, options) {
         const config = this.config;
         const listeners = {};
+        const provideTelemetry = this.provideTelemetry;
 
         // Keep track of the domain objects subscribed
         if (!listeners[domainObject.identifier.key]) {
@@ -25,25 +48,7 @@ class DsnTelemetryProvider {
         const interval = setInterval(function () {
             getDsnData(config)
                 .then(dsn => {
-                    let dsnData = '';
-
-                    if (Object.prototype.hasOwnProperty.call(dsn.data, domainObject.identifier.key)) {
-                        if (typeof dsn.data[domainObject.identifier.key] === 'object') {
-                            dsnData = dsn.data[domainObject.identifier.key];
-                        } else {
-                            dsnData = {};
-                            dsnData[domainObject.identifier.key] = dsn.data[domainObject.identifier.key];
-                        }
-                    }
-
-                    // Invoke the callback with the updated datum
-                    if (Array.isArray(dsnData)) {
-                        dsnData.forEach(function (value) {
-                            callback(value);
-                        });
-                    } else {
-                        callback(dsnData);
-                    }
+                    provideTelemetry(dsn, domainObject, callback);
                 });
         }, 5000);
 
