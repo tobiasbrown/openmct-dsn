@@ -97,5 +97,16 @@ describe('DsnTelemetryProvider', function () {
             expect(callback).toHaveBeenCalledTimes(1);
             expect(callback).toHaveBeenCalledWith({ [key]: '' });
         });
+
+        it("once with a datum that has a value", function () {
+            telemetryProvider.provideTelemetry(dsn, domainObjectWithTelemetry, callback);
+            expect(callback).toHaveBeenCalledTimes(1);
+            expect(callback).toHaveBeenCalledWith(
+                {
+                    'mdscc.latitude': 40.2413554,
+                    'mdscc.utc.time': 1549708172929
+                }
+            );
+        });
     });
 });
