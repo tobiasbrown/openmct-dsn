@@ -1,5 +1,5 @@
-import DsnUtils from "./DsnUtils.js";
-import { DSN_KEY, DSN_NAMESPACE } from "./constants.js";
+import DsnUtils from './DsnUtils.js';
+import { DSN_KEY, DSN_NAMESPACE } from './constants.js';
 import dictionary from '../res/dsn-dictionary.json';
 
 export const compositionProvider = {

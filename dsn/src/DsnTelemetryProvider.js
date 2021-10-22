@@ -1,5 +1,5 @@
-import { DSN_TELEMETRY_TYPE } from "./constants.js";
-import { getDsnData } from "./dsn-requests.js";
+import { DSN_TELEMETRY_TYPE } from './constants.js';
+import { getDsnData } from './dsn-requests.js';
 
 class DsnTelemetryProvider {
     constructor(config) {

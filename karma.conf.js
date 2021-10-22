@@ -8,8 +8,8 @@ module.exports = (config) => {
         autoWatch: true,
         basePath: '',
         browserConsoleLogOptions: {
-            format: "%b %T: %m",
-            level: "error",
+            format: '%b %T: %m',
+            level: 'error',
             terminal: true
         },
         browsers: browsers,

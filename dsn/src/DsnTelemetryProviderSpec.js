@@ -1,6 +1,6 @@
-import DsnParser from "./DsnParser.js";
-import DsnTelemetryProvider from "./DsnTelemetryProvider.js";
-import { DSN_NAMESPACE } from "./constants.js";
+import DsnParser from './DsnParser.js';
+import DsnTelemetryProvider from './DsnTelemetryProvider.js';
+import { DSN_NAMESPACE } from './constants.js';
 import testXmlConfigResponse from '!!raw-loader!../res/test-dsn-config-response.xml';
 import testXmlResponse from '!!raw-loader!../res/test-dsn-response.xml';
 
@@ -15,116 +15,116 @@ describe('DsnTelemetryProvider', function () {
     let telemetryProvider;
 
     const signalsDomainObject = {
-        "identifier": {
-            "key": "dss14.signals",
-            "namespace": "deep.space.network"
+        'identifier': {
+            'key': 'dss14.signals',
+            'namespace': 'deep.space.network'
         },
-        "name": "Signals",
-        "telemetry": {
-            "values": [
+        'name': 'Signals',
+        'telemetry': {
+            'values': [
                 {
-                    "hints": {
-                        "domain": 1
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.spacecraft.friendly.name",
-                    "name": "Spacecraft"
+                    'key': 'dss14.signal.spacecraft.friendly.name',
+                    'name': 'Spacecraft'
                 },
                 {
-                    "hints": {
-                        "domain": 1
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.direction",
-                    "name": "Direction"
+                    'key': 'dss14.signal.direction',
+                    'name': 'Direction'
                 },
                 {
-                    "hints": {
-                        "domain": 1
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.type",
-                    "name": "Type"
+                    'key': 'dss14.signal.type',
+                    'name': 'Type'
                 },
                 {
-                    "hints": {
-                        "domain": 1
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.type.debug",
-                    "name": "Debug"
+                    'key': 'dss14.signal.type.debug',
+                    'name': 'Debug'
                 },
                 {
-                    "format": "data-rate-to-string",
-                    "hints": {
-                        "domain": 1
+                    'format': 'data-rate-to-string',
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.data.rate",
-                    "name": "Data rate"
+                    'key': 'dss14.signal.data.rate',
+                    'name': 'Data rate'
                 },
                 {
-                    "format": "frequency-to-string",
-                    "hints": {
-                        "domain": 1
+                    'format': 'frequency-to-string',
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.frequency",
-                    "name": "Frequency"
+                    'key': 'dss14.signal.frequency',
+                    'name': 'Frequency'
                 },
                 {
-                    "format": "power-to-string",
-                    "hints": {
-                        "domain": 1
+                    'format': 'power-to-string',
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "dss14.signal.power",
-                    "name": "Power"
+                    'key': 'dss14.signal.power',
+                    'name': 'Power'
                 },
                 {
-                    "format": "utc",
-                    "hints": {
-                        "domain": 1
+                    'format': 'utc',
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "utc",
-                    "name": "UTC",
-                    "source": "gdscc.utc.time"
+                    'key': 'utc',
+                    'name': 'UTC',
+                    'source': 'gdscc.utc.time'
                 }
             ]
         },
-        "type": "dsn.telemetry"
+        'type': 'dsn.telemetry'
     };
 
     const domainObjectWithTelemetry = {
-        "identifier": {
-            "key": "mdscc.latitude",
-            "namespace": DSN_NAMESPACE
+        'identifier': {
+            'key': 'mdscc.latitude',
+            'namespace': DSN_NAMESPACE
         },
-        "name": "Latitude",
-        "telemetry": {
-            "values": [
+        'name': 'Latitude',
+        'telemetry': {
+            'values': [
                 {
-                    "hints": {
-                        "domain": 1
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "mdscc.latitude",
-                    "name": "Latitude"
+                    'key': 'mdscc.latitude',
+                    'name': 'Latitude'
                 },
                 {
-                    "format": "utc",
-                    "hints": {
-                        "domain": 1
+                    'format': 'utc',
+                    'hints': {
+                        'domain': 1
                     },
-                    "key": "utc",
-                    "name": "UTC",
-                    "source": "mdscc.utc.time"
+                    'key': 'utc',
+                    'name': 'UTC',
+                    'source': 'mdscc.utc.time'
                 }
             ]
         },
-        "type": "dsn.telemetry"
+        'type': 'dsn.telemetry'
     };
 
     const domainObjectWithoutTelemetry = {
-        "composition": [],
-        "identifier": {
-            "key": "gdscc.dss14",
-            "namespace": DSN_NAMESPACE
+        'composition': [],
+        'identifier': {
+            'key': 'gdscc.dss14',
+            'namespace': DSN_NAMESPACE
         },
-        "name": "DSS 14",
-        "type": "folder"
+        'name': 'DSS 14',
+        'type': 'folder'
     };
 
     beforeEach(function () {
@@ -149,11 +149,11 @@ describe('DsnTelemetryProvider', function () {
         telemetryProvider = null;
     });
 
-    it("supports subscriptions for DSN telemetry", function () {
+    it('supports subscriptions for DSN telemetry', function () {
         expect(telemetryProvider.supportsSubscribe(domainObjectWithTelemetry)).toBe(true);
     });
 
-    it("does not support other subscriptions", function () {
+    it('does not support other subscriptions', function () {
         expect(telemetryProvider.supportsSubscribe(domainObjectWithoutTelemetry)).toBe(false);
     });
 
@@ -164,7 +164,7 @@ describe('DsnTelemetryProvider', function () {
             callback = jasmine.createSpy('callback');
         });
 
-        it("with a datum that has no value", function () {
+        it('with a datum that has no value', function () {
             const key = domainObjectWithTelemetry.identifier.key;
             dsn.data[key] = '';
             telemetryProvider.provideTelemetry(dsn, domainObjectWithTelemetry, callback);
@@ -172,7 +172,7 @@ describe('DsnTelemetryProvider', function () {
             expect(callback).toHaveBeenCalledWith({ [key]: '' });
         });
 
-        it("once with a datum that has a value", function () {
+        it('once with a datum that has a value', function () {
             telemetryProvider.provideTelemetry(dsn, domainObjectWithTelemetry, callback);
             expect(callback).toHaveBeenCalledTimes(1);
             expect(callback).toHaveBeenCalledWith(
@@ -183,33 +183,33 @@ describe('DsnTelemetryProvider', function () {
             );
         });
 
-        it("multiple times with a datum that has multiple values", function () {
+        it('multiple times with a datum that has multiple values', function () {
             telemetryProvider.provideTelemetry(dsn, signalsDomainObject, callback);
             expect(callback).toHaveBeenCalledTimes(2);
             expect(callback).toHaveBeenCalledWith({
-                "dss14.signal.direction": "down",
-                "dss14.signal.type": "data",
-                "dss14.signal.type.debug": "IN LOCK OFF 1 MCD2",
-                "dss14.signal.data.rate": 160.002853,
-                "dss14.signal.frequency": 8420585323.254991,
-                "dss14.signal.power": -155.647873,
-                "dss14.signal.spacecraft": "VGR1",
-                "dss14.signal.spacecraft.id": 31,
-                "dss14.signal.spacecraft.friendly.name": "Voyager 1",
-                "gdscc.utc.time": 1549708172929
+                'dss14.signal.direction': 'down',
+                'dss14.signal.type': 'data',
+                'dss14.signal.type.debug': 'IN LOCK OFF 1 MCD2',
+                'dss14.signal.data.rate': 160.002853,
+                'dss14.signal.frequency': 8420585323.254991,
+                'dss14.signal.power': -155.647873,
+                'dss14.signal.spacecraft': 'VGR1',
+                'dss14.signal.spacecraft.id': 31,
+                'dss14.signal.spacecraft.friendly.name': 'Voyager 1',
+                'gdscc.utc.time': 1549708172929
             });
 
             expect(callback).toHaveBeenCalledWith({
-                "dss14.signal.direction": "up",
-                "dss14.signal.type": "none",
-                "dss14.signal.type.debug": "none",
-                "dss14.signal.data.rate": 160.002853,
-                "dss14.signal.frequency": 8420585323.254991,
-                "dss14.signal.power": -155.647873,
-                "dss14.signal.spacecraft": "",
-                "dss14.signal.spacecraft.id": "",
-                "dss14.signal.spacecraft.friendly.name": undefined,
-                "gdscc.utc.time": 1549708172929
+                'dss14.signal.direction': 'up',
+                'dss14.signal.type': 'none',
+                'dss14.signal.type.debug': 'none',
+                'dss14.signal.data.rate': 160.002853,
+                'dss14.signal.frequency': 8420585323.254991,
+                'dss14.signal.power': -155.647873,
+                'dss14.signal.spacecraft': '',
+                'dss14.signal.spacecraft.id': '',
+                'dss14.signal.spacecraft.friendly.name': undefined,
+                'gdscc.utc.time': 1549708172929
             });
         });
     });
