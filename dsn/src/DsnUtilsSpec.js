@@ -1,14 +1,20 @@
-import DsnUtils from './DsnUtils.js';
+import {
+    deserializeIdentifier,
+    getStationNameByDish,
+    parseTelemetryAsFloatOrString,
+    parseTelemetryAsIntegerOrString,
+    serializeIdentifier
+} from './DsnUtils.js';
 
 describe('DsnUtils', function () {
     it('deserializes a domain object identifier', function () {
-        const identifier = DsnUtils.deserializeIdentifier('deep.space.network:canberra');
+        const identifier = deserializeIdentifier('deep.space.network:canberra');
         expect(identifier.namespace).toBe('deep.space.network');
         expect(identifier.key).toBe('canberra');
     });
 
     it('serializes a domain object identifier', function () {
-        const identifer = DsnUtils.serializeIdentifier({
+        const identifer = serializeIdentifier({
             namespace: 'deep.space.network',
             key: 'madrid'
         });
@@ -18,7 +24,7 @@ describe('DsnUtils', function () {
 
     it('logs a warning to the console when unknown dish is provided', function () {
         spyOn(console, 'warn');
-        DsnUtils.getStationNameByDish('iss');
+        getStationNameByDish('iss');
         expect(console.warn).toHaveBeenCalled();
     });
 
@@ -30,22 +36,22 @@ describe('DsnUtils', function () {
         });
 
         it('DSS14', function () {
-            station = DsnUtils.getStationNameByDish('dss14');
+            station = getStationNameByDish('dss14');
             expect(station).toBe('gdscc');
         });
 
         it('DSS24', function () {
-            station = DsnUtils.getStationNameByDish('dss24');
+            station = getStationNameByDish('dss24');
             expect(station).toBe('gdscc');
         });
 
         it('DSS25', function () {
-            station = DsnUtils.getStationNameByDish('dss25');
+            station = getStationNameByDish('dss25');
             expect(station).toBe('gdscc');
         });
 
         it('DSS26', function () {
-            station = DsnUtils.getStationNameByDish('dss26');
+            station = getStationNameByDish('dss26');
             expect(station).toBe('gdscc');
         });
     });
@@ -58,22 +64,22 @@ describe('DsnUtils', function () {
         });
 
         it('DSS34', function () {
-            station = DsnUtils.getStationNameByDish('dss34');
+            station = getStationNameByDish('dss34');
             expect(station).toBe('cdscc');
         });
 
         it('DSS35', function () {
-            station = DsnUtils.getStationNameByDish('dss35');
+            station = getStationNameByDish('dss35');
             expect(station).toBe('cdscc');
         });
 
         it('DSS36', function () {
-            station = DsnUtils.getStationNameByDish('dss36');
+            station = getStationNameByDish('dss36');
             expect(station).toBe('cdscc');
         });
 
         it('DSS43', function () {
-            station = DsnUtils.getStationNameByDish('dss43');
+            station = getStationNameByDish('dss43');
             expect(station).toBe('cdscc');
         });
     });
@@ -86,27 +92,27 @@ describe('DsnUtils', function () {
         });
 
         it('DSS54', function () {
-            station = DsnUtils.getStationNameByDish('dss54');
+            station = getStationNameByDish('dss54');
             expect(station).toBe('mdscc');
         });
 
         it('DSS55', function () {
-            station = DsnUtils.getStationNameByDish('dss55');
+            station = getStationNameByDish('dss55');
             expect(station).toBe('mdscc');
         });
 
         it('DSS56', function () {
-            station = DsnUtils.getStationNameByDish('dss56');
+            station = getStationNameByDish('dss56');
             expect(station).toBe('mdscc');
         });
 
         it('DSS63', function () {
-            station = DsnUtils.getStationNameByDish('dss63');
+            station = getStationNameByDish('dss63');
             expect(station).toBe('mdscc');
         });
 
         it('DSS65', function () {
-            station = DsnUtils.getStationNameByDish('dss65');
+            station = getStationNameByDish('dss65');
             expect(station).toBe('mdscc');
         });
     });
@@ -126,7 +132,7 @@ describe('DsnUtils', function () {
             let dataRate;
 
             downSignal.setAttribute('dataRate', '160.002853');
-            dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
+            dataRate = parseTelemetryAsFloatOrString(downSignal, 'dataRate');
             expect(dataRate).toBe(160.002853);
         });
 
@@ -139,9 +145,9 @@ describe('DsnUtils', function () {
             downSignal.setAttribute('frequency', ' ');
             downSignal.setAttribute('power', 'none');
 
-            dataRate = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'dataRate');
-            frequency = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'frequency');
-            power = DsnUtils.parseTelemetryAsFloatOrString(downSignal, 'power');
+            dataRate = parseTelemetryAsFloatOrString(downSignal, 'dataRate');
+            frequency = parseTelemetryAsFloatOrString(downSignal, 'frequency');
+            power = parseTelemetryAsFloatOrString(downSignal, 'power');
 
             expect(dataRate).toBe('');
             expect(frequency).toBe(' ');
@@ -152,7 +158,7 @@ describe('DsnUtils', function () {
             let dataRate;
 
             downSignal.setAttribute('dataRate', '160');
-            dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
+            dataRate = parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
             expect(dataRate).toBe(160);
         });
 
@@ -165,9 +171,9 @@ describe('DsnUtils', function () {
             downSignal.setAttribute('frequency', ' ');
             downSignal.setAttribute('power', 'none');
 
-            dataRate = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
-            frequency = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'frequency');
-            power = DsnUtils.parseTelemetryAsIntegerOrString(downSignal, 'power');
+            dataRate = parseTelemetryAsIntegerOrString(downSignal, 'dataRate');
+            frequency = parseTelemetryAsIntegerOrString(downSignal, 'frequency');
+            power = parseTelemetryAsIntegerOrString(downSignal, 'power');
 
             expect(dataRate).toBe('');
             expect(frequency).toBe(' ');

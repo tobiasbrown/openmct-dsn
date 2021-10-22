@@ -1,4 +1,4 @@
-import DsnUtils from './DsnUtils.js';
+import { serializeIdentifier } from './DsnUtils.js';
 import dictionary from '../res/dsn-dictionary.json';
 
 export const objectProvider = {
@@ -16,7 +16,7 @@ export const objectProvider = {
             });
         } else {
             return Promise.resolve(
-                dictionary.domainObjects[DsnUtils.serializeIdentifier(identifier)]
+                dictionary.domainObjects[serializeIdentifier(identifier)]
             );
         }
     }

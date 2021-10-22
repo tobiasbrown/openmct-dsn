@@ -1,4 +1,4 @@
-import DsnUtils from './DsnUtils.js';
+import { deserializeIdentifier, serializeIdentifier } from './DsnUtils.js';
 import { DSN_KEY, DSN_NAMESPACE } from './constants.js';
 import dictionary from '../res/dsn-dictionary.json';
 
@@ -11,7 +11,7 @@ export const compositionProvider = {
             return Promise.resolve(Object.keys(dictionary.domainObjects).filter(function (key) {
                 return dictionary.domainObjects[key].location === DSN_NAMESPACE + ':' + DSN_KEY;
             }).map(function (key) {
-                const childId = DsnUtils.deserializeIdentifier(key);
+                const childId = deserializeIdentifier(key);
 
                 return {
                     namespace: childId.namespace,
@@ -20,8 +20,8 @@ export const compositionProvider = {
             }));
         } else {
             return Promise.resolve(
-                dictionary.domainObjects[DsnUtils.serializeIdentifier(domainObject.identifier)].composition.map(function (key) {
-                    const childId = DsnUtils.deserializeIdentifier(key);
+                dictionary.domainObjects[serializeIdentifier(domainObject.identifier)].composition.map(function (key) {
+                    const childId = deserializeIdentifier(key);
 
                     return {
                         namespace: childId.namespace,
