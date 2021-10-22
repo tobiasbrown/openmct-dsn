@@ -157,6 +157,15 @@ describe('DsnTelemetryProvider', function () {
         expect(telemetryProvider.supportsSubscribe(domainObjectWithoutTelemetry)).toBe(false);
     });
 
+    it('subscription returns a function', function () {
+        function callback() {
+            return null;
+        }
+
+        const unsubscribe = telemetryProvider.subscribe(domainObjectWithTelemetry, callback);
+        expect(unsubscribe).toEqual(jasmine.any(Function));
+    });
+
     describe('invokes a callback', function () {
         let callback;
 
