@@ -4,7 +4,7 @@ import {
     parseTelemetryAsFloatOrString,
     parseTelemetryAsIntegerOrString,
     serializeIdentifier
-} from './DsnUtils.js';
+} from './dsn-utils.js';
 
 describe('DsnUtils', function () {
     it('deserializes a domain object identifier', function () {

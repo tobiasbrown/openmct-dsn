@@ -1,4 +1,4 @@
-import { serializeIdentifier } from './DsnUtils.js';
+import { serializeIdentifier } from './dsn-utils.js';
 import dictionary from '../res/dsn-dictionary.json';
 
 export const objectProvider = {

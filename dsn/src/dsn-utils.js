@@ -1,4 +1,3 @@
-
 /**
  * Converts a domain object's identifier to an object.
  *

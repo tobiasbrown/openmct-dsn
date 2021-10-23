@@ -1,4 +1,4 @@
-import { deserializeIdentifier, serializeIdentifier } from './DsnUtils.js';
+import { deserializeIdentifier, serializeIdentifier } from './dsn-utils.js';
 import { DSN_KEY, DSN_NAMESPACE } from './constants.js';
 import dictionary from '../res/dsn-dictionary.json';
 

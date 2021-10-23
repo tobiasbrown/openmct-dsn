@@ -2,7 +2,7 @@ import {
     getStationNameByDish,
     parseTelemetryAsFloatOrString,
     parseTelemetryAsIntegerOrString
-} from './DsnUtils.js';
+} from './dsn-utils.js';
 
 class DsnParser {
     /**
