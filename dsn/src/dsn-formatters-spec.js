@@ -1,5 +1,6 @@
 import {
     angleToString,
+    dataRateToString,
     windSpeedToString
 } from './dsn-formatters.js';
 
@@ -94,5 +95,77 @@ describe('wind-speed-to-string', function () {
     it('does not validate an undefined wind speed', function () {
         const canParseWindSpeed = windSpeedToString.validate(undefined);
         expect(canParseWindSpeed).toBeFalse();
+    });
+});
+
+describe('data-rate-to-string', function () {
+    it('formats the data rate of a signal to two decimal places', function () {
+        const dataRate = dataRateToString.format(12.3456);
+        expect(dataRate).toEqual('12.35 b/sec');
+    });
+
+    it('formats the data rate of a signal as a string', function () {
+        const dataRate = dataRateToString.format('12.3456 bits per second');
+        expect(dataRate).toEqual('12.3456 bits per second');
+    });
+
+    it('formats the data rate of a signal as b/sec', function () {
+        const dataRate = dataRateToString.format(987.65);
+        expect(dataRate).toEqual('987.65 b/sec');
+    });
+
+    it('formats the data rate of a signal as kb/sec', function () {
+        const dataRate = dataRateToString.format(987654.32);
+        expect(dataRate).toEqual('987.65 kb/sec');
+    });
+
+    it('formats the data rate of a signal as Mb/sec', function () {
+        const dataRate = dataRateToString.format(987654321.01);
+        expect(dataRate).toEqual('987.65 Mb/sec');
+    });
+
+    it('formats the data rate of a signal as Gb/sec', function () {
+        const dataRate = dataRateToString.format(987654321012);
+        expect(dataRate).toEqual('987.65 Gb/sec');
+    });
+
+    it('formats the data rate of a signal as Tb/sec', function () {
+        const dataRate = dataRateToString.format(987654321012345);
+        expect(dataRate).toEqual('987.65 Tb/sec');
+    });
+
+    it('formats the data rate of a signal as Pb/sec', function () {
+        const dataRate = dataRateToString.format(987654321012345678);
+        expect(dataRate).toEqual('987.65 Pb/sec');
+    });
+
+    it('parses the data rate of a signal as a number', function () {
+        const dataRate = dataRateToString.parse(12.3456);
+        expect(dataRate).toEqual(12.3456);
+    });
+
+    it('parses the data rate of a signal as a string', function () {
+        const dataRate = dataRateToString.parse('12.34 b/sec');
+        expect(dataRate).toEqual(12.34);
+    });
+
+    it('validates the data rate of a signal as a number', function () {
+        const canParseDataRate = dataRateToString.validate(12.3456);
+        expect(canParseDataRate).toBeTrue();
+    });
+
+    it('validates the data rate of a signal as a string', function () {
+        const canParseDataRate = dataRateToString.validate('12.34 b/sec');
+        expect(canParseDataRate).toBeTrue();
+    });
+
+    it('does not validate a null data rate', function () {
+        const canParseDataRate = dataRateToString.validate(null);
+        expect(canParseDataRate).toBeFalse();
+    });
+
+    it('does not validate an undefined data rate', function () {
+        const canParseDataRate = dataRateToString.validate(undefined);
+        expect(canParseDataRate).toBeFalse();
     });
 });
