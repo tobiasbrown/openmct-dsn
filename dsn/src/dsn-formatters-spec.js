@@ -1,6 +1,7 @@
 import {
     angleToString,
     dataRateToString,
+    frequencyToString,
     windSpeedToString
 } from './dsn-formatters.js';
 
@@ -167,5 +168,72 @@ describe('data-rate-to-string', function () {
     it('does not validate an undefined data rate', function () {
         const canParseDataRate = dataRateToString.validate(undefined);
         expect(canParseDataRate).toBeFalse();
+    });
+});
+
+describe('frequency-to-string', function () {
+    it('formats the frequency of a signal to two decimal places', function () {
+        const frequency = frequencyToString.format(12.3456);
+        expect(frequency).toEqual('12.35 Hz');
+    });
+
+    it('formats the frequency of a signal as a string', function () {
+        const frequency = frequencyToString.format('12.3456 hertz');
+        expect(frequency).toEqual('12.3456 hertz');
+    });
+
+    it('formats the frequency of a signal as Hz', function () {
+        const frequency = frequencyToString.format(987.65);
+        expect(frequency).toEqual('987.65 Hz');
+    });
+
+    it('formats the frequency of a signal as kHz', function () {
+        const frequency = frequencyToString.format(987654.32);
+        expect(frequency).toEqual('987.65 kHz');
+    });
+
+    it('formats the frequency of a signal as MHz', function () {
+        const frequency = frequencyToString.format(987654321.01);
+        expect(frequency).toEqual('987.65 MHz');
+    });
+
+    it('formats the frequency of a signal as GHz', function () {
+        const frequency = frequencyToString.format(987654321012);
+        expect(frequency).toEqual('987.65 GHz');
+    });
+
+    it('formats the frequency of a signal as THz', function () {
+        const frequency = frequencyToString.format(987654321012345);
+        expect(frequency).toEqual('987.654321012345 THz');
+    });
+
+    it('parses the frequency of a signal as a number', function () {
+        const frequency = frequencyToString.parse(12.3456);
+        expect(frequency).toEqual(12.3456);
+    });
+
+    it('parses the frequency of a signal as a string', function () {
+        const frequency = frequencyToString.parse('12.34 Hz');
+        expect(frequency).toEqual(12.34);
+    });
+
+    it('validates the frequency of a signal as a number', function () {
+        const canParseFrequency = frequencyToString.validate(12.3456);
+        expect(canParseFrequency).toBeTrue();
+    });
+
+    it('validates the frequency of a signal as a string', function () {
+        const canParseFrequency = frequencyToString.validate('12.34 Hz');
+        expect(canParseFrequency).toBeTrue();
+    });
+
+    it('does not validate a null frequency', function () {
+        const canParseFrequency = frequencyToString.validate(null);
+        expect(canParseFrequency).toBeFalse();
+    });
+
+    it('does not validate an undefined frequency', function () {
+        const canParseFrequency = frequencyToString.validate(undefined);
+        expect(canParseFrequency).toBeFalse();
     });
 });
