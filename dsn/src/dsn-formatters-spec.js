@@ -2,6 +2,7 @@ import {
     angleToString,
     dataRateToString,
     frequencyToString,
+    powerToString,
     windSpeedToString
 } from './dsn-formatters.js';
 
@@ -235,5 +236,77 @@ describe('frequency-to-string', function () {
     it('does not validate an undefined frequency', function () {
         const canParseFrequency = frequencyToString.validate(undefined);
         expect(canParseFrequency).toBeFalse();
+    });
+});
+
+describe('power-to-string', function () {
+    it('formats the power of a signal to two decimal places', function () {
+        const power = powerToString.format(12.3456);
+        expect(power).toEqual('12.35 kW');
+    });
+
+    it('formats the power of a signal as a string', function () {
+        const power = powerToString.format('12.3456 kilowatts');
+        expect(power).toEqual('12.3456 kilowatts');
+    });
+
+    it('formats the power of a signal as kW', function () {
+        const power = powerToString.format(987.65);
+        expect(power).toEqual('987.65 kW');
+    });
+
+    it('formats the power of a signal as dBm', function () {
+        const power = powerToString.format(-987.65);
+        expect(power).toEqual('-987.65 dBm');
+    });
+
+    it('parses the power of a signal as a number (kW)', function () {
+        const power = powerToString.parse(12.3456);
+        expect(power).toEqual(12.3456);
+    });
+
+    it('parses the power of a signal as a number (dBm)', function () {
+        const power = powerToString.parse(-12.3456);
+        expect(power).toEqual(-12.3456);
+    });
+
+    it('parses the power of a signal as a string (kW)', function () {
+        const power = powerToString.parse('12.34 kW');
+        expect(power).toEqual(12.34);
+    });
+
+    it('parses the power of a signal as a string (dBm)', function () {
+        const power = powerToString.parse('-12.34 dBm');
+        expect(power).toEqual(-12.34);
+    });
+
+    it('validates the power of a signal as a number (kW)', function () {
+        const canParsePower = powerToString.validate(12.3456);
+        expect(canParsePower).toBeTrue();
+    });
+
+    it('validates the power of a signal as a number (dBm)', function () {
+        const canParsePower = powerToString.validate(-12.3456);
+        expect(canParsePower).toBeTrue();
+    });
+
+    it('validates the power of a signal as a string (kW)', function () {
+        const canParsePower = powerToString.validate('12.34 kW');
+        expect(canParsePower).toBeTrue();
+    });
+
+    it('validates the power of a signal as a string (dBm)', function () {
+        const canParsePower = powerToString.validate('-12.34 dBm');
+        expect(canParsePower).toBeTrue();
+    });
+
+    it('does not validate a null value for the power of a signal', function () {
+        const canParsePower = powerToString.validate(null);
+        expect(canParsePower).toBeFalse();
+    });
+
+    it('does not validate an undefined value for the power of a signal', function () {
+        const canParsePower = powerToString.validate(undefined);
+        expect(canParsePower).toBeFalse();
     });
 });
