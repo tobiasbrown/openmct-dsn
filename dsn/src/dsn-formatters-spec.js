@@ -3,6 +3,7 @@ import {
     dataRateToString,
     frequencyToString,
     powerToString,
+    rangeToString,
     windSpeedToString
 } from './dsn-formatters.js';
 
@@ -308,5 +309,77 @@ describe('power-to-string', function () {
     it('does not validate an undefined value for the power of a signal', function () {
         const canParsePower = powerToString.validate(undefined);
         expect(canParsePower).toBeFalse();
+    });
+});
+
+describe('range-to-string', function () {
+    it('formats the range of a spacecraft to two decimal places', function () {
+        const range = rangeToString.format(12.3456);
+        expect(range).toEqual('12.35 km');
+    });
+
+    it('formats the range of a spacecraft as a string', function () {
+        const range = rangeToString.format('12.3456 kilometres');
+        expect(range).toEqual('12.3456 kilometres');
+    });
+
+    it('formats the range of a spacecraft as km', function () {
+        const range = rangeToString.format(987.65);
+        expect(range).toEqual('987.65 km');
+    });
+
+    it('formats the range of a spacecraft as thousand km', function () {
+        const range = rangeToString.format(987654.32);
+        expect(range).toEqual('987.65 thousand km');
+    });
+
+    it('formats the range of a spacecraft as million km', function () {
+        const range = rangeToString.format(987654321.01);
+        expect(range).toEqual('987.65 million km');
+    });
+
+    it('formats the range of a spacecraft as billion km', function () {
+        const range = rangeToString.format(987654321012);
+        expect(range).toEqual('987.65 billion km');
+    });
+
+    it('formats the range of a spacecraft as trillion km', function () {
+        const range = rangeToString.format(987654321012345);
+        expect(range).toEqual('987.65 trillion km');
+    });
+
+    it('formats the range of a spacecraft as quadrillion km', function () {
+        const range = rangeToString.format(987654321012345678);
+        expect(range).toEqual('987.65 quadrillion km');
+    });
+
+    it('parses the range of a spacecraft as a number', function () {
+        const range = rangeToString.parse(12.3456);
+        expect(range).toEqual(12.3456);
+    });
+
+    it('parses the range of a spacecraft as a string', function () {
+        const range = rangeToString.parse('12.34 km');
+        expect(range).toEqual(12.34);
+    });
+
+    it('validates the range of a spacecraft as a number', function () {
+        const canParseRange = rangeToString.validate(12.3456);
+        expect(canParseRange).toBeTrue();
+    });
+
+    it('validates the range of a spacecraft as a string', function () {
+        const canParseRange = rangeToString.validate('12.34 km');
+        expect(canParseRange).toBeTrue();
+    });
+
+    it('does not validate a null range of a spacecraft', function () {
+        const canParseRange = rangeToString.validate(null);
+        expect(canParseRange).toBeFalse();
+    });
+
+    it('does not validate an undefined range of a spacecraft', function () {
+        const canParseRange = rangeToString.validate(undefined);
+        expect(canParseRange).toBeFalse();
     });
 });
