@@ -2,6 +2,7 @@ import {
     angleToString,
     dataRateToString,
     frequencyToString,
+    lightTimeToString,
     powerToString,
     rangeToString,
     windSpeedToString
@@ -381,5 +382,72 @@ describe('range-to-string', function () {
     it('does not validate an undefined range of a spacecraft', function () {
         const canParseRange = rangeToString.validate(undefined);
         expect(canParseRange).toBeFalse();
+    });
+});
+
+describe('light-time-to-string', function () {
+    it('formats the round-trip light time for a spacecraft to two decimal places', function () {
+        const lightTime = lightTimeToString.format(12.3456);
+        expect(lightTime).toEqual('12.35 sec');
+    });
+
+    it('formats the round-trip light time for a spacecraft as a string', function () {
+        const lightTime = lightTimeToString.format('12.3456 seconds');
+        expect(lightTime).toEqual('12.3456 seconds');
+    });
+
+    it('formats the round-trip light time for a spacecraft as sec', function () {
+        const lightTime = lightTimeToString.format(12.34);
+        expect(lightTime).toEqual('12.34 sec');
+    });
+
+    it('formats the round-trip light time for a spacecraft as minutes', function () {
+        const lightTime = lightTimeToString.format(123.45);
+        expect(lightTime).toEqual('2.06 minutes');
+    });
+
+    it('formats the round-trip light time for a spacecraft as hours', function () {
+        const lightTime = lightTimeToString.format(12345.67);
+        expect(lightTime).toEqual('3.43 hours');
+    });
+
+    it('formats the round-trip light time for a spacecraft as days', function () {
+        const lightTime = lightTimeToString.format(123456.78);
+        expect(lightTime).toEqual('1.43 days');
+    });
+
+    it('formats the round-trip light time for a spacecraft as weeks', function () {
+        const lightTime = lightTimeToString.format(123456789);
+        expect(lightTime).toEqual('204.13 weeks');
+    });
+
+    it('parses the round-trip light time for a spacecraft as a number', function () {
+        const lightTime = lightTimeToString.parse(12.3456);
+        expect(lightTime).toEqual(12.3456);
+    });
+
+    it('parses the round-trip light time for a spacecraft as a string', function () {
+        const lightTime = lightTimeToString.parse('12.34 sec');
+        expect(lightTime).toEqual(12.34);
+    });
+
+    it('validates the round-trip light time for a spacecraft as a number', function () {
+        const canParseLightTime = lightTimeToString.validate(12.3456);
+        expect(canParseLightTime).toBeTrue();
+    });
+
+    it('validates the round-trip light time for a spacecraft as a string', function () {
+        const canParseLightTime = lightTimeToString.validate('12.34 sec');
+        expect(canParseLightTime).toBeTrue();
+    });
+
+    it('does not validate a null round-trip light time for a spacecraft', function () {
+        const canParseLightTime = lightTimeToString.validate(null);
+        expect(canParseLightTime).toBeFalse();
+    });
+
+    it('does not validate an undefined round-trip light time for a spacecraft', function () {
+        const canParseLightTime = lightTimeToString.validate(undefined);
+        expect(canParseLightTime).toBeFalse();
     });
 });
