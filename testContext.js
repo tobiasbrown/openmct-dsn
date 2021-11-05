@@ -1,2 +1,2 @@
-const testContext = require.context('.', true, /\/dsn\/src\/.*Spec.js$/);
+const testContext = require.context('.', true, /\/dsn\/src\/.*[sS]pec.js$/);
 testContext.keys().forEach(testContext);

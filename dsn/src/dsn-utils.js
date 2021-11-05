@@ -1,4 +1,3 @@
-
 /**
  * Converts a domain object's identifier to an object.
  *
@@ -78,11 +77,3 @@ export function parseTelemetryAsIntegerOrString(element, attribute) {
 export function serializeIdentifier(identifier) {
     return identifier.namespace + ':' + identifier.key;
 }
-
-export default {
-    deserializeIdentifier: deserializeIdentifier,
-    getStationNameByDish: getStationNameByDish,
-    parseTelemetryAsFloatOrString: parseTelemetryAsFloatOrString,
-    parseTelemetryAsIntegerOrString: parseTelemetryAsIntegerOrString,
-    serializeIdentifier: serializeIdentifier
-};

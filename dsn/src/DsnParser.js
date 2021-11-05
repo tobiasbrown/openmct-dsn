@@ -1,18 +1,17 @@
+import {
+    getStationNameByDish,
+    parseTelemetryAsFloatOrString,
+    parseTelemetryAsIntegerOrString
+} from './dsn-utils.js';
 
-define([
-    './DsnUtils'
-], function (
-    DsnUtils
-) {
-
+class DsnParser {
     /**
      * Construct a new Deep Space Network parser.
      *
      * @memberof plugins/dsn
      * @param {object} config - The parsed configuration of the Deep Space Network.
-     * @constructor
      */
-    function DsnParser(config) {
+    constructor(config) {
         this.dsn = {
             data: config ? config : {}
         };
@@ -25,7 +24,7 @@ define([
      * @param {Element} sitesElement - The sites to parse.
      * @returns {object} An object containing information about each site and its dishes.
      */
-    DsnParser.prototype.parseSitesTag = function (sitesElement) {
+    parseSitesTag(sitesElement) {
         let dishElement;
         let dishKey = '';
         let siteElement;
@@ -52,7 +51,7 @@ define([
         }
 
         return sites;
-    };
+    }
 
     /**
      * Parses a spacecraftMap tag contained in the Deep Space Network's configuration XML.
@@ -61,7 +60,7 @@ define([
      * @param {Element} spacecraftMapElement - The spacecraftMap to parse.
      * @returns {object} An object containing information about each spacecraft that is being tracked.
      */
-    DsnParser.prototype.parseSpacecraftMapTag = function (spacecraftMapElement) {
+    parseSpacecraftMapTag(spacecraftMapElement) {
         let key = '';
         let spacecraftElement;
         const spacecrafts = {};
@@ -77,7 +76,7 @@ define([
         }
 
         return spacecrafts;
-    };
+    }
 
     /**
      * Parses the sites and spacecraftMap tags contained in the Deep Space Network's
@@ -87,7 +86,7 @@ define([
      * @param {Document} xmlDocument - The XML document representing the configuration of the
      * Deep Space Network.
      */
-    DsnParser.prototype.parseDsnConfig = function (xmlDocument) {
+    parseDsnConfig(xmlDocument) {
         const configElements = xmlDocument.documentElement.children;
         let element;
 
@@ -102,7 +101,7 @@ define([
                     Object.assign(this.dsn.data, this.parseSpacecraftMapTag(element));
             }
         }
-    };
+    }
 
     /**
      * Parses a station tag contained in the Deep Space Network's XML.
@@ -111,7 +110,7 @@ define([
      * @param {Element} stationElement - The station to parse.
      * @returns {object} An object containing the station's data.
      */
-    DsnParser.prototype.parseStationTag = function (stationElement) {
+    parseStationTag(stationElement) {
         const friendlyName = {};
         const key = stationElement.getAttribute('name').toLowerCase();
         const latitude = {};
@@ -137,7 +136,7 @@ define([
         station[key + '.station'] = Object.assign({}, station);
 
         return station;
-    };
+    }
 
     /**
      * Parses a dish tag contained in the Deep Space Network's XML.
@@ -147,7 +146,7 @@ define([
      * @returns {object} An object containing data about the dish's antenna, down signals,
      * up signals and targets.
      */
-    DsnParser.prototype.parseDishTag = function (dishElement) {
+    parseDishTag(dishElement) {
         const azimuthAngle = {};
         let child;
         const created = {};
@@ -161,7 +160,7 @@ define([
         const name = {};
         let signal = {};
         let spacecraftName = '';
-        const stationKey = DsnUtils.getStationNameByDish(key);
+        const stationKey = getStationNameByDish(key);
         let target = {};
         let targetName = '';
         const type = {};
@@ -172,9 +171,9 @@ define([
         name[key + '.name'] = dishElement.getAttribute('name');
         friendlyName[key + '.friendly.name'] = this.dsn.data[key + '.dish.friendly.name'];
         type[key + '.type'] = this.dsn.data[key + '.dish.type'];
-        azimuthAngle[key + '.azimuth.angle'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'azimuthAngle');
-        elevationAngle[key + '.elevation.angle'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'elevationAngle');
-        windSpeed[key + '.wind.speed'] = DsnUtils.parseTelemetryAsFloatOrString(dishElement, 'windSpeed');
+        azimuthAngle[key + '.azimuth.angle'] = parseTelemetryAsFloatOrString(dishElement, 'azimuthAngle');
+        elevationAngle[key + '.elevation.angle'] = parseTelemetryAsFloatOrString(dishElement, 'elevationAngle');
+        windSpeed[key + '.wind.speed'] = parseTelemetryAsFloatOrString(dishElement, 'windSpeed');
         isMspa[key + '.mspa'] = dishElement.getAttribute('isMSPA') === 'true';
         isArray[key + '.array'] = dishElement.getAttribute('isArray') === 'true';
         isDdor[key + '.ddor'] = dishElement.getAttribute('isDDOR') === 'true';
@@ -208,11 +207,11 @@ define([
                     signal[key + '.signal.direction'] = child.tagName.substring(0, child.tagName.length - 6);
                     signal[key + '.signal.type'] = child.getAttribute('signalType');
                     signal[key + '.signal.type.debug'] = child.getAttribute('signalTypeDebug');
-                    signal[key + '.signal.data.rate'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'dataRate');
-                    signal[key + '.signal.frequency'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'frequency');
-                    signal[key + '.signal.power'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'power');
+                    signal[key + '.signal.data.rate'] = parseTelemetryAsFloatOrString(child, 'dataRate');
+                    signal[key + '.signal.frequency'] = parseTelemetryAsFloatOrString(child, 'frequency');
+                    signal[key + '.signal.power'] = parseTelemetryAsFloatOrString(child, 'power');
                     signal[key + '.signal.spacecraft'] = child.getAttribute('spacecraft');
-                    signal[key + '.signal.spacecraft.id'] = DsnUtils.parseTelemetryAsIntegerOrString(child, 'spacecraftId');
+                    signal[key + '.signal.spacecraft.id'] = parseTelemetryAsIntegerOrString(child, 'spacecraftId');
                     signal[key + '.signal.spacecraft.friendly.name'] = this.dsn.data[spacecraftName + '.friendly.name'];
                     signal = Object.assign(signal, utcTime);
                     dish[key + '.signals'].push(signal);
@@ -222,10 +221,10 @@ define([
 
                     target = {};
                     target[key + '.target.name'] = child.getAttribute('name');
-                    target[key + '.target.id'] = DsnUtils.parseTelemetryAsIntegerOrString(child, 'id');
-                    target[key + '.target.upleg.range'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'uplegRange');
-                    target[key + '.target.downleg.range'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'downlegRange');
-                    target[key + '.target.rtlt'] = DsnUtils.parseTelemetryAsFloatOrString(child, 'rtlt');
+                    target[key + '.target.id'] = parseTelemetryAsIntegerOrString(child, 'id');
+                    target[key + '.target.upleg.range'] = parseTelemetryAsFloatOrString(child, 'uplegRange');
+                    target[key + '.target.downleg.range'] = parseTelemetryAsFloatOrString(child, 'downlegRange');
+                    target[key + '.target.rtlt'] = parseTelemetryAsFloatOrString(child, 'rtlt');
                     target[key + '.target.friendly.name'] = targetName ? this.dsn.data[targetName + '.friendly.name'] : '';
                     target = Object.assign(target, utcTime);
                     dish[key + '.targets'].push(target);
@@ -234,7 +233,7 @@ define([
         }
 
         return dish;
-    };
+    }
 
     /**
      * Parses the timestamp tag contained in the Deep Space Network's XML.
@@ -243,9 +242,9 @@ define([
      * @param {Element} timestampElement - The timestamp to parse.
      * @returns {integer} The time in milliseconds since the UNIX epoch.
      */
-    DsnParser.prototype.parseTimestampTag = function (timestampElement) {
+    parseTimestampTag(timestampElement) {
         return parseInt(timestampElement.textContent, 10);
-    };
+    }
 
     /**
      * Parses the station, dish and timestamp tags contained in the Deep Space Network's XML.
@@ -253,7 +252,7 @@ define([
      * @private
      * @param {Document} xmlDocument - The XML document representing the Deep Space Network's data.
      */
-    DsnParser.prototype.parseDsnData = function (xmlDocument) {
+    parseDsnData(xmlDocument) {
         const dsnElements = xmlDocument.documentElement.children;
         let element;
 
@@ -271,16 +270,13 @@ define([
                     this.dsn.data.timestamp = this.parseTimestampTag(element);
             }
         }
-    };
+    }
 
     /**
      * @typedef DsnData
      * @type {object}
-     * @property {object} config - An object containing properties that match the values of domain
-     * object identifier keys and their corresponding telemetry values.
      * @property {object} data - An object containing properties that match the values of domain
      * object identifier keys and their corresponding telemetry values.
-     * @property {integer} timestamp - The time in milliseconds since the UNIX epoch.
      */
 
     /**
@@ -291,7 +287,7 @@ define([
      * @returns {DsnData} The parsed XML as an object with configuration data and properties that
      * match the values of domain object identifier keys.
      */
-    DsnParser.prototype.parseXml = function (xmlDocument) {
+    parseXml(xmlDocument) {
         if (xmlDocument.documentElement.tagName === 'config') {
             this.parseDsnConfig(xmlDocument);
         } else {
@@ -299,7 +295,7 @@ define([
         }
 
         return this.dsn;
-    };
+    }
+}
 
-    return DsnParser;
-});
+export default DsnParser;
