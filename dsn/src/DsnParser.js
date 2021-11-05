@@ -275,11 +275,8 @@ class DsnParser {
     /**
      * @typedef DsnData
      * @type {object}
-     * @property {object} config - An object containing properties that match the values of domain
-     * object identifier keys and their corresponding telemetry values.
      * @property {object} data - An object containing properties that match the values of domain
      * object identifier keys and their corresponding telemetry values.
-     * @property {integer} timestamp - The time in milliseconds since the UNIX epoch.
      */
 
     /**
