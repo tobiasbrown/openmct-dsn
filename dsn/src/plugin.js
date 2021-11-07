@@ -15,7 +15,6 @@ import {
 } from './dsn-formatters.js';
 
 import DsnTelemetryProvider from './DsnTelemetryProvider.js';
-import { compositionProvider } from './dsn-composition-provider.js';
 import { objectProvider } from './dsn-object-provider.js';
 import { getDsnConfiguration } from './dsn-requests.js';
 
@@ -43,7 +42,6 @@ export default function DsnPlugin() {
             .then(dsn => openmct.telemetry.addProvider(new DsnTelemetryProvider(dsn.data)));
 
         openmct.objects.addProvider(DSN_NAMESPACE, objectProvider);
-        openmct.composition.addProvider(compositionProvider);
 
         // This type represents DSN domain objects with telemetry
         openmct.types.addType(DSN_TELEMETRY_TYPE, {
