@@ -362,6 +362,29 @@
             },
             "type": "dsn.telemetry"
         },
+        "deep.space.network:dsn": {
+            "composition": [
+                {
+                    "key": "canberra",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "goldstone",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "madrid",
+                    "namespace": "deep.space.network"
+                }
+            ],
+            "identifier": {
+                "key": "dsn",
+                "namespace": "deep.space.network"
+            },
+            "location": "ROOT",
+            "name": "Deep Space Network",
+            "type": "folder"
+        },
         "deep.space.network:dss14.antenna": {
             "composition": [
                 {
@@ -8356,12 +8379,5 @@
             },
             "type": "dsn.telemetry"
         }
-    },
-    "identifier": {
-        "key": "dsn",
-        "namespace": "deep.space.network"
-    },
-    "location": "ROOT",
-    "name": "Deep Space Network",
-    "type": "folder"
+    }
 }
