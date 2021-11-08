@@ -6425,6 +6425,610 @@
             },
             "type": "dsn.telemetry"
         },
+        "deep.space.network:dss56.antenna": {
+            "composition": [
+                {
+                    "key": "dss56.name",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.friendly.name",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.type",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.azimuth.angle",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.elevation.angle",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.wind.speed",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.mspa",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.array",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.ddor",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.created",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.updated",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "mdscc.utc.time",
+                    "namespace": "deep.space.network"
+                }
+            ],
+            "identifier": {
+                "key": "dss56.antenna",
+                "namespace": "deep.space.network"
+            },
+            "name": "Antenna",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.friendly.name",
+                        "name": "Friendly name"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.type",
+                        "name": "Type"
+                    },
+                    {
+                        "format": "angle-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.azimuth.angle",
+                        "name": "Azimuth",
+                        "units": "deg"
+                    },
+                    {
+                        "format": "angle-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.elevation.angle",
+                        "name": "Elevation",
+                        "units": "deg"
+                    },
+                    {
+                        "format": "wind-speed-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.wind.speed",
+                        "name": "Wind speed",
+                        "units": "km/hr"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.mspa",
+                        "name": "MSPA"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.array",
+                        "name": "Array"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.ddor",
+                        "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.created",
+                        "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.updated",
+                        "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.array": {
+            "identifier": {
+                "key": "dss56.array",
+                "namespace": "deep.space.network"
+            },
+            "name": "Array",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.array",
+                        "name": "Array"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.azimuth.angle": {
+            "identifier": {
+                "key": "dss56.azimuth.angle",
+                "namespace": "deep.space.network"
+            },
+            "name": "Azimuth",
+            "telemetry": {
+                "values": [
+                    {
+                        "format": "angle-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.azimuth.angle",
+                        "name": "Azimuth",
+                        "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.created": {
+            "identifier": {
+                "key": "dss56.created",
+                "namespace": "deep.space.network"
+            },
+            "name": "Created",
+            "telemetry": {
+                "values": [
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.created",
+                        "name": "Created"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.ddor": {
+            "identifier": {
+                "key": "dss56.ddor",
+                "namespace": "deep.space.network"
+            },
+            "name": "DDOR",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.ddor",
+                        "name": "DDOR"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.elevation.angle": {
+            "identifier": {
+                "key": "dss56.elevation.angle",
+                "namespace": "deep.space.network"
+            },
+            "name": "Elevation",
+            "telemetry": {
+                "values": [
+                    {
+                        "format": "angle-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.elevation.angle",
+                        "name": "Elevation",
+                        "units": "deg"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.friendly.name": {
+            "identifier": {
+                "key": "dss56.friendly.name",
+                "namespace": "deep.space.network"
+            },
+            "name": "Friendly name",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.friendly.name",
+                        "name": "Friendly name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.mspa": {
+            "identifier": {
+                "key": "dss56.mspa",
+                "namespace": "deep.space.network"
+            },
+            "name": "MSPA",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.mspa",
+                        "name": "MSPA"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.name": {
+            "identifier": {
+                "key": "dss56.name",
+                "namespace": "deep.space.network"
+            },
+            "name": "Name",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.name",
+                        "name": "Name"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.signals": {
+            "identifier": {
+                "key": "dss56.signals",
+                "namespace": "deep.space.network"
+            },
+            "name": "Signals",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.spacecraft.friendly.name",
+                        "name": "Spacecraft"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.direction",
+                        "name": "Direction"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.type",
+                        "name": "Type"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.type.debug",
+                        "name": "Debug"
+                    },
+                    {
+                        "format": "data-rate-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.data.rate",
+                        "name": "Data rate"
+                    },
+                    {
+                        "format": "frequency-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.frequency",
+                        "name": "Frequency"
+                    },
+                    {
+                        "format": "power-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.signal.power",
+                        "name": "Power"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.targets": {
+            "identifier": {
+                "key": "dss56.targets",
+                "namespace": "deep.space.network"
+            },
+            "name": "Targets",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.target.id",
+                        "name": "ID"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.target.name",
+                        "name": "Name"
+                    },
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.target.friendly.name",
+                        "name": "Friendly name"
+                    },
+                    {
+                        "format": "range-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.target.upleg.range",
+                        "name": "Upleg range"
+                    },
+                    {
+                        "format": "range-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.target.downleg.range",
+                        "name": "Downleg range"
+                    },
+                    {
+                        "format": "light-time-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.target.rtlt",
+                        "name": "Round-trip light time"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.type": {
+            "identifier": {
+                "key": "dss56.type",
+                "namespace": "deep.space.network"
+            },
+            "name": "Type",
+            "telemetry": {
+                "values": [
+                    {
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.type",
+                        "name": "Type"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.updated": {
+            "identifier": {
+                "key": "dss56.updated",
+                "namespace": "deep.space.network"
+            },
+            "name": "Updated",
+            "telemetry": {
+                "values": [
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.updated",
+                        "name": "Updated"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
+        "deep.space.network:dss56.wind.speed": {
+            "identifier": {
+                "key": "dss56.wind.speed",
+                "namespace": "deep.space.network"
+            },
+            "name": "Wind speed",
+            "telemetry": {
+                "values": [
+                    {
+                        "format": "wind-speed-to-string",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "dss56.wind.speed",
+                        "name": "Wind speed",
+                        "units": "km/hr"
+                    },
+                    {
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        },
+                        "key": "utc",
+                        "name": "UTC",
+                        "source": "mdscc.utc.time"
+                    }
+                ]
+            },
+            "type": "dsn.telemetry"
+        },
         "deep.space.network:dss63.antenna": {
             "composition": [
                 {
@@ -8010,6 +8614,10 @@
                     "namespace": "deep.space.network"
                 },
                 {
+                    "key": "mdscc.dss56",
+                    "namespace": "deep.space.network"
+                },
+                {
                     "key": "mdscc.dss63",
                     "namespace": "deep.space.network"
                 },
@@ -8068,6 +8676,28 @@
                 "namespace": "deep.space.network"
             },
             "name": "DSS 55",
+            "type": "folder"
+        },
+        "deep.space.network:mdscc.dss56": {
+            "composition": [
+                {
+                    "key": "dss56.antenna",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.signals",
+                    "namespace": "deep.space.network"
+                },
+                {
+                    "key": "dss56.targets",
+                    "namespace": "deep.space.network"
+                }
+            ],
+            "identifier": {
+                "key": "mdscc.dss56",
+                "namespace": "deep.space.network"
+            },
+            "name": "DSS 56",
             "type": "folder"
         },
         "deep.space.network:mdscc.dss63": {
