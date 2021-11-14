@@ -5,6 +5,7 @@ describe('DsnIndicator', function () {
     const simpleIndicator = {
         description: jasmine.createSpy(),
         iconClass: jasmine.createSpy(),
+        statusClass: jasmine.createSpy(),
         text: jasmine.createSpy()
     };
 
@@ -53,5 +54,11 @@ describe('DsnIndicator', function () {
     it('finds multiple active antennas', function () {
         const activeAntennas = indicator.getActiveAntennas(dsn, MADRID_ANTENNAS);
         expect(activeAntennas).toEqual(['dss54', 'dss55']);
+    });
+
+    it('updates the status class when setting active antennas', function () {
+        const expected = 's-status-ok';
+        indicator.setActiveAntennas(dsn);
+        expect(indicator.indicator.statusClass).toHaveBeenCalledWith(expected);
     });
 });
