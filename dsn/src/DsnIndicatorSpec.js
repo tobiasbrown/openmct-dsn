@@ -1,5 +1,5 @@
 import DsnIndicator from './DsnIndicator.js';
-import { CANBERRA_ANTENNAS } from './constants.js';
+import { CANBERRA_ANTENNAS, GOLDSTONE_ANTENNAS } from './constants.js';
 
 describe('DsnIndicator', function () {
     const simpleIndicator = {
@@ -43,5 +43,10 @@ describe('DsnIndicator', function () {
     it('finds no active antennas', function () {
         const activeAntennas = indicator.getActiveAntennas(dsn, CANBERRA_ANTENNAS);
         expect(activeAntennas).toEqual([]);
+    });
+
+    it('finds one active antenna', function () {
+        const activeAntennas = indicator.getActiveAntennas(dsn, GOLDSTONE_ANTENNAS);
+        expect(activeAntennas).toEqual(['dss25']);
     });
 });
