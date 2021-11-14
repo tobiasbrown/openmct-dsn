@@ -2,8 +2,9 @@ import { DSN_TELEMETRY_TYPE } from './constants.js';
 import { getDsnData } from './dsn-requests.js';
 
 class DsnTelemetryProvider {
-    constructor(config) {
+    constructor(config, indicator) {
         this.config = config;
+        this.indicator = indicator;
     }
 
     provideTelemetry(dsn, domainObject, callback) {
@@ -34,6 +35,7 @@ class DsnTelemetryProvider {
 
     subscribe(domainObject, callback, options) {
         const config = this.config;
+        const indicator = this.indicator;
         const listeners = {};
         const provideTelemetry = this.provideTelemetry;
 
@@ -49,6 +51,10 @@ class DsnTelemetryProvider {
             getDsnData(config)
                 .then(dsn => {
                     provideTelemetry(dsn, domainObject, callback);
+                    indicator.setActiveAntennas(dsn);
+                })
+                .catch(error => {
+                    indicator.setError(error);
                 });
         }, 5000);
 
