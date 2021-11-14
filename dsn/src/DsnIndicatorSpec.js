@@ -73,4 +73,10 @@ describe('DsnIndicator', function () {
         indicator.setError('error');
         expect(indicator.indicator.statusClass).toHaveBeenCalledWith(expected);
     });
+
+    it('updates the description when setting an error', function () {
+        const expected = 'error';
+        indicator.setError(expected);
+        expect(indicator.indicator.description).toHaveBeenCalledWith(expected);
+    });
 });
