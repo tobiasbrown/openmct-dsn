@@ -20,4 +20,9 @@ describe('DsnIndicator', function () {
         const status = indicator.formatAntennaStatus('Canberra', []);
         expect(status).toEqual('Canberra: 0');
     });
+
+    it('formats status with one active antenna', function () {
+        const status = indicator.formatAntennaStatus('Goldstone', ['dss14']);
+        expect(status).toEqual('Goldstone: 1 (DSS 14)');
+    });
 });
