@@ -67,4 +67,10 @@ describe('DsnIndicator', function () {
         indicator.setActiveAntennas(dsn);
         expect(indicator.indicator.description).toHaveBeenCalledWith(expected);
     });
+
+    it('updates the status class when setting an error', function () {
+        const expected = 's-status-error';
+        indicator.setError('error');
+        expect(indicator.indicator.statusClass).toHaveBeenCalledWith(expected);
+    });
 });
