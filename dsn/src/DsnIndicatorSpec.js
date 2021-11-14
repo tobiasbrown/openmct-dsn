@@ -1,4 +1,5 @@
 import DsnIndicator from './DsnIndicator.js';
+import { CANBERRA_ANTENNAS } from './constants.js';
 
 describe('DsnIndicator', function () {
     const simpleIndicator = {
@@ -10,7 +11,15 @@ describe('DsnIndicator', function () {
     const openmct = jasmine.createSpyObj('openmct', ['indicators']);
     openmct.indicators = jasmine.createSpyObj('indicators', ['simpleIndicator']);
     openmct.indicators.simpleIndicator = jasmine.createSpy().and.callFake(() => simpleIndicator);
+
     let indicator;
+    const dsn = {
+        data: {
+            'dss25.signals': [{}],
+            'dss54.signals': [{}],
+            'dss55.signals': [{}, {}]
+        }
+    };
 
     beforeEach(function () {
         indicator = new DsnIndicator(openmct);
@@ -29,5 +38,10 @@ describe('DsnIndicator', function () {
     it('formats status with multiple active antennas', function () {
         const status = indicator.formatAntennaStatus('Madrid', ['dss54', 'dss55', 'dss63']);
         expect(status).toEqual('Madrid: 3 (DSS 54, DSS 55, DSS 63)');
+    });
+
+    it('finds no active antennas', function () {
+        const activeAntennas = indicator.getActiveAntennas(dsn, CANBERRA_ANTENNAS);
+        expect(activeAntennas).toEqual([]);
     });
 });
