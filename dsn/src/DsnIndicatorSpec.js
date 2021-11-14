@@ -61,4 +61,10 @@ describe('DsnIndicator', function () {
         indicator.setActiveAntennas(dsn);
         expect(indicator.indicator.statusClass).toHaveBeenCalledWith(expected);
     });
+
+    it('updates the description when setting active antennas', function () {
+        const expected = 'Canberra: 0\nGoldstone: 1 (DSS 25)\nMadrid: 2 (DSS 54, DSS 55)';
+        indicator.setActiveAntennas(dsn);
+        expect(indicator.indicator.description).toHaveBeenCalledWith(expected);
+    });
 });
