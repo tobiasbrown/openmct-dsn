@@ -24,7 +24,10 @@ export function getDsnConfiguration() {
         .then(checkFetchStatus)
         .then(response => response.text())
         .then(parseResponse)
-        .catch(error => console.error('Error fetching DSN config: ', error));
+        .catch(error => {
+            console.error('Error fetching DSN config: ', error);
+            throw error;
+        });
 }
 
 export function getDsnData(config) {
@@ -35,5 +38,8 @@ export function getDsnData(config) {
         .then(checkFetchStatus)
         .then(response => response.text())
         .then(responseText => parseResponse(responseText, config))
-        .catch(error => console.error('Error fetching DSN data: ', error));
+        .catch(error => {
+            console.error('Error fetching DSN data: ', error);
+            throw error;
+        });
 }

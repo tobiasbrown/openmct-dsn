@@ -14,6 +14,7 @@ import {
     windSpeedToString
 } from './dsn-formatters.js';
 
+import DsnIndicator from './DsnIndicator.js';
 import DsnTelemetryProvider from './DsnTelemetryProvider.js';
 import { objectProvider } from './dsn-object-provider.js';
 import { getDsnConfiguration } from './dsn-requests.js';
@@ -38,8 +39,14 @@ export default function DsnPlugin() {
         openmct.telemetry.addFormat(rangeToString);
         openmct.telemetry.addFormat(lightTimeToString);
 
+        const antennaIndicator = new DsnIndicator(openmct);
+        openmct.indicators.add(antennaIndicator.indicator);
+
         getDsnConfiguration()
-            .then(dsn => openmct.telemetry.addProvider(new DsnTelemetryProvider(dsn.data)));
+            .then(dsn => openmct.telemetry.addProvider(new DsnTelemetryProvider(dsn.data, antennaIndicator)))
+            .catch(error => {
+                antennaIndicator.setError(error);
+            });
 
         openmct.objects.addProvider(DSN_NAMESPACE, objectProvider);
 
