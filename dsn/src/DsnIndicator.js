@@ -1,4 +1,4 @@
-import { CANBERRA_ANTENNAS, GOLDSTONE_ANTENNAS, MADRID_ANTENNAS } from './constants.js';
+import { CANBERRA_ANTENNAS, GOLDSTONE_ANTENNAS, MADRID_ANTENNAS } from './dsn-constants.js';
 
 class DsnIndicator {
     constructor(openmct) {

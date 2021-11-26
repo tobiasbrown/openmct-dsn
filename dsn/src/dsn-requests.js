@@ -1,5 +1,5 @@
 import DsnParser from './DsnParser.js';
-import { DSN_CONFIG_SOURCE, DSN_TELEMETRY_SOURCE } from './constants.js';
+import { DSN_CONFIG_SOURCE, DSN_TELEMETRY_SOURCE } from './dsn-constants.js';
 
 function checkFetchStatus(response) {
     if (response.status >= 200 && response.status < 300) {

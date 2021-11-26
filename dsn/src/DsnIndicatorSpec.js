@@ -1,5 +1,5 @@
 import DsnIndicator from './DsnIndicator.js';
-import { CANBERRA_ANTENNAS, GOLDSTONE_ANTENNAS, MADRID_ANTENNAS } from './constants.js';
+import { CANBERRA_ANTENNAS, GOLDSTONE_ANTENNAS, MADRID_ANTENNAS } from './dsn-constants.js';
 
 describe('DsnIndicator', function () {
     const simpleIndicator = {
