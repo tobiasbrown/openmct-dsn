@@ -1,6 +1,6 @@
 import DsnParser from './DsnParser.js';
 import DsnTelemetryProvider from './DsnTelemetryProvider.js';
-import { DSN_NAMESPACE } from './constants.js';
+import { DSN_NAMESPACE } from './dsn-constants.js';
 import testXmlConfigResponse from '!!raw-loader!../res/test-dsn-config-response.xml';
 import testXmlResponse from '!!raw-loader!../res/test-dsn-response.xml';
 

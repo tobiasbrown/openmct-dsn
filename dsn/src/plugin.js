@@ -2,7 +2,7 @@ import {
     DSN_KEY,
     DSN_NAMESPACE,
     DSN_TELEMETRY_TYPE
-} from './constants.js';
+} from './dsn-constants.js';
 
 import {
     angleToString,
