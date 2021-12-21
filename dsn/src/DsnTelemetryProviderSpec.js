@@ -12,6 +12,7 @@ describe('DsnTelemetryProvider', function () {
     let dsn;
     let dsnParser;
     let dsnXml;
+    let indicator;
     let telemetryProvider;
 
     const signalsDomainObject = {
@@ -136,7 +137,8 @@ describe('DsnTelemetryProvider', function () {
         dsnXml = domParser.parseFromString(testXmlResponse, 'application/xml');
         dsn = dsnParser.parseXml(dsnXml);
 
-        telemetryProvider = new DsnTelemetryProvider(dsn);
+        indicator = jasmine.createSpyObj('indicator', ['setError']);
+        telemetryProvider = new DsnTelemetryProvider(dsn, indicator);
     });
 
     afterEach(function () {
