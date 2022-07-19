@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: path.resolve(__dirname, '/dsn/src/plugin.js'),
+    entry: path.join(__dirname, '/dsn/src/plugin.js'),
     mode: 'development',
     module: {
         rules: [
