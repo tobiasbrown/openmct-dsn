@@ -5,6 +5,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/eslint-parser": "^7.18.9",
+    "cross-env": "^7.0.3",
     "eslint": "^8.20.0",
     "jasmine": "^4.2.1",
     "karma": "^6.4.0",
@@ -21,7 +22,7 @@
     "build": "webpack --config webpack.config.js",
     "lint": "eslint .",
     "test": "karma start --single-run",
-    "test:debug": "NODE_ENV=debug karma start --no-single-run"
+    "test:debug": "cross-env NODE_ENV=debug karma start --no-single-run"
   },
   "repository": {
     "type": "git",
