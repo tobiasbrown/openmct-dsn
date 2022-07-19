@@ -139,8 +139,8 @@ describe('data-rate-to-string', function () {
     });
 
     it('formats the data rate of a signal as Pb/sec', function () {
-        const dataRate = dataRateToString.format(987654321012345678);
-        expect(dataRate).toEqual('987.65 Pb/sec');
+        const dataRate = dataRateToString.format(9876543210123456);
+        expect(dataRate).toEqual('9.88 Pb/sec');
     });
 
     it('parses the data rate of a signal as a number', function () {
@@ -350,8 +350,8 @@ describe('range-to-string', function () {
     });
 
     it('formats the range of a spacecraft as quadrillion km', function () {
-        const range = rangeToString.format(987654321012345678);
-        expect(range).toEqual('987.65 quadrillion km');
+        const range = rangeToString.format(9876543210123456);
+        expect(range).toEqual('9.88 quadrillion km');
     });
 
     it('parses the range of a spacecraft as a number', function () {
