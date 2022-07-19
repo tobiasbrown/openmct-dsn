@@ -9,7 +9,7 @@
     "jasmine": "^4.2.1",
     "karma": "^6.4.0",
     "karma-cli": "^2.0.0",
-    "karma-firefox-launcher": "^2.1.1",
+    "karma-firefox-launcher": "^2.1.2",
     "karma-jasmine": "^4.0.1",
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^5.0.0",
