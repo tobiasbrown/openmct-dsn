@@ -6,7 +6,7 @@
     "@babel/core": "^7.18.9",
     "@babel/eslint-parser": "^7.18.9",
     "eslint": "^8.20.0",
-    "jasmine": "^3.9.0",
+    "jasmine": "^4.2.1",
     "karma": "^6.3.4",
     "karma-cli": "^2.0.0",
     "karma-firefox-launcher": "^2.1.1",
