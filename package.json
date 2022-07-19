@@ -4,7 +4,7 @@
   "description": "Open MCT plugin to integrate telemetry from the Deep Space Network",
   "devDependencies": {
     "@babel/core": "^7.18.9",
-    "@babel/eslint-parser": "^7.15.7",
+    "@babel/eslint-parser": "^7.18.9",
     "eslint": "^7.32.0",
     "jasmine": "^3.9.0",
     "karma": "^6.3.4",
