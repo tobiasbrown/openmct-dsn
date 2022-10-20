@@ -18,9 +18,7 @@ function parseResponse(responseText, config) {
 }
 
 export function getDsnConfiguration() {
-    const url = '/proxyUrl?url=' + encodeURIComponent(DSN_CONFIG_SOURCE);
-
-    return fetch(url)
+    return fetch(DSN_CONFIG_SOURCE)
         .then(checkFetchStatus)
         .then(response => response.text())
         .then(parseResponse)
@@ -32,7 +30,7 @@ export function getDsnConfiguration() {
 
 export function getDsnData(config) {
     // Add the same query string parameter the DSN site sends with each request
-    const url = '/proxyUrl?url=' + encodeURIComponent(DSN_TELEMETRY_SOURCE + '?r=' + Math.floor(new Date().getTime() / 5000));
+    const url = DSN_TELEMETRY_SOURCE + '?r=' + Math.floor(new Date().getTime() / 5000);
 
     return fetch(url)
         .then(checkFetchStatus)
